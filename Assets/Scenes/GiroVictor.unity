@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 1645951142}
   - component: {fileID: 1645951141}
   - component: {fileID: 1645951140}
+  - component: {fileID: 1645951145}
   - component: {fileID: 1645951144}
   m_Layer: 0
   m_Name: Cube
@@ -361,10 +362,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56df61e0fd06bc45b773370af6b6dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _playerInput: {fileID: 1645951145}
   _speed: 10
   _invertedX: 0
   _invertedY: 0
+--- !u!114 &1645951145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645951138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1870744232
 GameObject:
   m_ObjectHideFlags: 0

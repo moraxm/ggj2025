@@ -3,32 +3,25 @@ using UnityEngine.InputSystem;
 
 public class Rotate3DObject : MonoBehaviour
 {
-    #region Input Actions
     [SerializeField]
-    private InputActionAsset _actions;
+    private PlayerInput _playerInput = null;
 
-    public InputActionAsset actions
-    {
-        get => _actions;
-        set => _actions = value;
-    }
+    #region Input Actions
 
-    protected InputAction leftClickPressedInputAction { get; set; }
+    protected InputAction _leftClickPressedInputAction { get; set; }
 
-    protected InputAction mouseLookInputAction { get; set; }
+    protected InputAction _mouseLookInputAction { get; set; }
 
     #endregion
 
     #region Variables
 
-    private bool _rotateAllowed;
+    private bool _rotateAllowed = false;
 
-    private Camera _camera;
+    [SerializeField] private float _speed = 10.0f;
 
-    [SerializeField] private float _speed;
-
-    [SerializeField] private bool _invertedX;
-    [SerializeField] private bool _invertedY;
+    [SerializeField] private bool _invertedX = false;
+    [SerializeField] private bool _invertedY = false;
 
     #endregion
 
@@ -37,24 +30,17 @@ public class Rotate3DObject : MonoBehaviour
         InitializeInputSystem();
     }
 
-    private void Start()
-    {
-        _camera = Camera.main;
-    }
-
     private void InitializeInputSystem()
     {
-        leftClickPressedInputAction = actions.FindActionMap("DragObject").FindAction("Click");
-        if (leftClickPressedInputAction != null)
+		_leftClickPressedInputAction = _playerInput.currentActionMap.FindAction("RotateClick");
+        if (_leftClickPressedInputAction != null)
         {
-            leftClickPressedInputAction.started += OnRightClickPressed;
-            leftClickPressedInputAction.performed += OnRightClickPressed;
-            leftClickPressedInputAction.canceled += OnRightClickPressed;
+            _leftClickPressedInputAction.started += OnRightClickPressed;
+            _leftClickPressedInputAction.performed += OnRightClickPressed;
+            _leftClickPressedInputAction.canceled += OnRightClickPressed;
         }
 
-        mouseLookInputAction = actions.FindActionMap("DragObject").FindAction("Delta");
-
-        actions.Enable();
+        _mouseLookInputAction = _playerInput.currentActionMap.FindAction("Delta");
     }
 
     protected virtual void OnRightClickPressed(InputAction.CallbackContext context)
@@ -70,8 +56,8 @@ public class Rotate3DObject : MonoBehaviour
 
     protected virtual Vector2 GetMouseLookInput()
     {
-        if (mouseLookInputAction != null)
-            return mouseLookInputAction.ReadValue<Vector2>();
+        if (_mouseLookInputAction != null)
+            return _mouseLookInputAction.ReadValue<Vector2>();
 
         return Vector2.zero;
     }
