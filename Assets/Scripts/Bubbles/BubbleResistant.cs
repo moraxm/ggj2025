@@ -22,7 +22,7 @@ public class BubbleResistant : Bubble
 		}
 		else
 		{
-			_animator.CrossFade("BubbleResistantPop", 0.1f);
+			_animator.CrossFade("BubbleResistantInversePush", 0.1f);
 			// TODO: Sonido volver de semipush a normal
 		}
 	}
