@@ -2,13 +2,13 @@ public class BubbleDefective : Bubble
 {
 	public override void Push()
 	{
-		base.Push();
 		// Sin sonido
+		base.Push();
 	}
 
 	public override void Pop()
 	{
-		base.Pop();
 		// Sin sonido
+		base.Pop();
 	}
 }

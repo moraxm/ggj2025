@@ -16,8 +16,8 @@ public class BubbleResistant : Bubble
 
 	public override void Push()
 	{
-		base.Push();
 		// TODO: Sonido Semipush
+		base.Push();
 	}
 
 	public override void Pop()
@@ -36,7 +36,7 @@ public class BubbleResistant : Bubble
 
 	private void ActualPop()
 	{
-		base.Pop();
 		// TODO: Sonido Pop
+		base.Pop();
 	}
 }

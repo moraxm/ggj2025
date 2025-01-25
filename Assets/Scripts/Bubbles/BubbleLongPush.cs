@@ -31,9 +31,9 @@ public class BubbleLongPush : Bubble
 
 	public override void Push()
 	{
+		// TODO: Sonido Long Push
 		base.Push();
 		_pushed = true;
-		// TODO: Sonido Long Push
 	}
 
 	public override void Pop()
@@ -48,8 +48,8 @@ public class BubbleLongPush : Bubble
 
 	private void ActualPop()
 	{
+		// TODO: Sonido Long Push Pop
 		base.Pop();
 		_pushed = false;
-		// TODO: Sonido Long Push Pop
 	}
 }
