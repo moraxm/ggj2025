@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Bubbles_mat
+    second: {fileID: 2100000, guid: ac4531beb3ebf4c4a878a748dfa1e782, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Interior_mat
     second: {fileID: 2100000, guid: d650227a0d567a340a1f32e8d784a787, type: 2}
   materials:
