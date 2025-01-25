@@ -126,6 +126,8 @@ public class GameManager : MonoBehaviour
 			}
 			yield return new WaitForSeconds(2.0f);
 			Debug.Log("Round started");
+			// Enable rotation
+			objectTransform.GetComponent<Rotate3DObject>().enabled = true;
 			_playing = true;
 		}
 
