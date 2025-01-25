@@ -57,8 +57,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: d06cd7c6ce7709742bf00785956850b8, type: 3}
-        m_Scale: {x: 1.04, y: 0.71}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 0.25, y: 0.3}
+        m_Offset: {x: 0.53, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 1734f8cb19b193e41a7acb34e7443259, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -183,7 +183,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
     - _BlendOp: 0
-    - _BumpScale: 2
+    - _BumpScale: 1
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
@@ -218,7 +218,7 @@ Material:
     - _Mode: 0
     - _OPACITY: 1
     - _OcclusionStrength: 0.488
-    - _Parallax: 0.08
+    - _Parallax: 0.0579
     - _QueueControl: 0
     - _QueueOffset: 1
     - _REFLECTIONS_IOR: 1.52
@@ -228,7 +228,7 @@ Material:
     - _SPECULAR_IOR: 1.5
     - _SPECULAR_ROUGHNESS: 0
     - _Shininess: 0.078125
-    - _Smoothness: 0.748
+    - _Smoothness: 0.509
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -245,7 +245,7 @@ Material:
     - _snow_slider: 7.350427
     m_Colors:
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.49411765}
+    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.78431374}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.35686275}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
