@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class Rotate3DObject : MonoBehaviour
@@ -8,9 +9,11 @@ public class Rotate3DObject : MonoBehaviour
 
     #region Input Actions
 
-    protected InputAction _leftClickPressedInputAction { get; set; }
+    protected InputAction _rotateInputAction { get; set; }
 
-    protected InputAction _mouseLookInputAction { get; set; }
+    protected InputAction _deltaInputAction { get; set; }
+
+    protected InputAction _zoomInputAction { get; set; }
 
     #endregion
 
@@ -23,6 +26,11 @@ public class Rotate3DObject : MonoBehaviour
     [SerializeField] private bool _invertedX = false;
     [SerializeField] private bool _invertedY = false;
 
+    [SerializeField] private bool _zoomEnabled = true;
+    [SerializeField] private Vector2 _maxDistance = new Vector2(-5, -10 );
+    [SerializeField] private Camera _camera;
+    [SerializeField] private float _factorZoom = 2;
+
     #endregion
 
     private void Awake()
@@ -30,17 +38,27 @@ public class Rotate3DObject : MonoBehaviour
         InitializeInputSystem();
     }
 
+    private void Start()
+    {
+        if(_camera == null)
+        {
+            _camera = Camera.main;
+        }
+    }
+
     private void InitializeInputSystem()
     {
-		_leftClickPressedInputAction = _playerInput.currentActionMap.FindAction("RotateClick");
-        if (_leftClickPressedInputAction != null)
+        _rotateInputAction = _playerInput.currentActionMap.FindAction("RotateClick");
+        if (_rotateInputAction != null)
         {
-            _leftClickPressedInputAction.started += OnRightClickPressed;
-            _leftClickPressedInputAction.performed += OnRightClickPressed;
-            _leftClickPressedInputAction.canceled += OnRightClickPressed;
+            _rotateInputAction.started += OnRightClickPressed;
+            _rotateInputAction.performed += OnRightClickPressed;
+            _rotateInputAction.canceled += OnRightClickPressed;
         }
 
-        _mouseLookInputAction = _playerInput.currentActionMap.FindAction("Delta");
+        _deltaInputAction = _playerInput.currentActionMap.FindAction("Delta");
+
+        _zoomInputAction = _playerInput.currentActionMap.FindAction("Zoom");
     }
 
     protected virtual void OnRightClickPressed(InputAction.CallbackContext context)
@@ -56,18 +74,46 @@ public class Rotate3DObject : MonoBehaviour
 
     protected virtual Vector2 GetMouseLookInput()
     {
-        if (_mouseLookInputAction != null)
-            return _mouseLookInputAction.ReadValue<Vector2>();
+        if (_deltaInputAction != null)
+            return _deltaInputAction.ReadValue<Vector2>();
 
         return Vector2.zero;
     }
 
+    protected virtual float GetZoom()
+    {
+        if (_zoomInputAction != null)
+            return _zoomInputAction.ReadValue<float>();
+
+        return 0;
+    }
+
     private void Update()
+    {
+        ManageZoom();
+        ManageRotation();
+    }
+
+    private void ManageZoom()
+    {
+        if(!_zoomEnabled)
+        {
+            return;
+        }
+        float zoom = GetZoom();
+
+        _camera.fieldOfView += -zoom * _factorZoom;
+
+        _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _maxDistance.x, _maxDistance.y);
+    }
+
+    private void ManageRotation()
     {
         if (!_rotateAllowed)
             return;
 
         Vector2 MouseDelta = GetMouseLookInput();
+
 
         MouseDelta *= _speed * Time.deltaTime;
 
