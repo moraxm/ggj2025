@@ -15,7 +15,11 @@ public class BubblesRaycaster : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		InputManager.Instance.UnregisterOnBubblePopPerformed(OnBubblePush);
+		InputManager inputManager = InputManager.Instance;
+		if (inputManager != null)
+		{
+			InputManager.Instance.UnregisterOnBubblePopPerformed(OnBubblePush);
+		}
 	}
 
 	private void Update()

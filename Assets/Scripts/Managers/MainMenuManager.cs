@@ -1,0 +1,48 @@
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class MainMenuManager : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject _defaultObject = null;
+
+	private void Start()
+	{
+        InputManager.Instance.RegisterOnBackPerformed(OnExit);
+        EventSystem.current.SetSelectedGameObject(_defaultObject);
+	}
+
+	private void OnDestroy()
+	{
+        InputManager inputManager = InputManager.Instance;
+        if (inputManager != null)
+        {
+            InputManager.Instance.UnregisterOnBackPerformed(OnExit);
+        }
+	}
+
+	public void OnPlay()
+    {
+
+    }
+
+    public void OnHowToPlay()
+    {
+
+    }
+
+    public void OnCredits()
+    {
+
+    }
+
+    public void OnExit()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+}

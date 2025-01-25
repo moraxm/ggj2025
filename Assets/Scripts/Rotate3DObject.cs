@@ -54,9 +54,13 @@ public class Rotate3DObject : MonoBehaviour
 
     private void TerminateInputSystem()
     {
-		InputManager.Instance.UnregisterOnRotateStarted(OnRightClickPressed);
-		InputManager.Instance.UnregisterOnRotatePerformed(OnRightClickPressed);
-		InputManager.Instance.UnregisterOnRotateCancelled(OnRightClickReleased);
+        InputManager inputManager = InputManager.Instance;
+        if (inputManager != null)
+        {
+            InputManager.Instance.UnregisterOnRotateStarted(OnRightClickPressed);
+            InputManager.Instance.UnregisterOnRotatePerformed(OnRightClickPressed);
+            InputManager.Instance.UnregisterOnRotateCancelled(OnRightClickReleased);
+        }
 	}
 
     protected virtual void OnRightClickPressed()
