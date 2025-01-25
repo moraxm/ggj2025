@@ -28,7 +28,7 @@ public class BurbujasCreator : MonoBehaviour
             container.Spline.Evaluate((b * i) + Offset, out float3 pos, out float3 tangent, out float3 up);
 
             Debug.DrawRay(transform.TransformPoint(pos), up, Color.red, 213809218932);
-            GameObject Burbuja = GameObject.Instantiate(BurbujaPrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up));
+            GameObject Burbuja = GameObject.Instantiate(BurbujaPrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
         }
     }
 

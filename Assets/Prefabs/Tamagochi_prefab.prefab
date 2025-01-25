@@ -1907,6 +1907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5179154903929533809}
   - component: {fileID: 2218277266446665891}
+  - component: {fileID: 1650079264713447937}
   m_Layer: 0
   m_Name: Tamagochi_prefab
   m_TagString: Untagged
@@ -1953,7 +1954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BurbujaPrefab: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
-  DistanceBetweenBurbujas: 0.005
+  DistanceBetweenBurbujas: 0.01
   Splines:
   - {fileID: 2851974239018208181}
   - {fileID: 8817325641524300390}
@@ -1965,6 +1966,22 @@ MonoBehaviour:
   - {fileID: 5651963373852552245}
   - {fileID: 823235761486392740}
   - {fileID: 8246802652100506387}
+--- !u!114 &1650079264713447937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4727535257128834302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56df61e0fd06bc45b773370af6b6dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInput: {fileID: 0}
+  _speed: 10
+  _invertedX: 0
+  _invertedY: 0
 --- !u!1 &6337031194067384966
 GameObject:
   m_ObjectHideFlags: 0
