@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &151497331450445291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8628568232761980582}
+  - component: {fileID: 2514873976842517404}
+  - component: {fileID: 4432975196127038500}
+  m_Layer: 0
+  m_Name: GameplayCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8628568232761980582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151497331450445291}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00079822517, y: -0.99733514, z: 0.06596101, w: -0.031164033}
+  m_LocalPosition: {x: -0.21822181, y: -0.084735036, z: -3.6030817}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2515846524388442969}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2514873976842517404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151497331450445291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!95 &4432975196127038500
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151497331450445291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &958827888838103435
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,19 +182,19 @@ MonoBehaviour:
         y: 0.15800011
         z: 0
       TangentIn:
-        x: -0
-        y: -0
-        z: -0.16350609
+        x: 0
+        y: 0
+        z: -0.15787736
       TangentOut:
         x: 0
         y: 0
-        z: 0.16350609
+        z: 0.16977894
       Rotation:
         value:
-          x: -0.18031792
-          y: 0.68929714
-          z: -0.34601542
-          w: 0.6104329
+          x: -0.25929177
+          y: 0.5312984
+          z: -0.28973636
+          w: 0.75269026
     - Position:
         x: 0.407
         y: -0.18599999
@@ -118,7 +216,7 @@ MonoBehaviour:
     m_MetaData:
     - Mode: 2
       Tension: 0.5
-    - Mode: 0
+    - Mode: 3
       Tension: 0.5
     - Mode: 2
       Tension: 0.5
@@ -131,8 +229,45 @@ MonoBehaviour:
       m_Data: []
     m_ObjectData:
       m_Data: []
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 0.205
+        y: 0.15800011
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -0
+      TangentOut:
+        x: 0
+        y: 0
+        z: 0
+      Rotation:
+        value:
+          x: -0.37858695
+          y: -0.000000004045982
+          z: -0.09440966
+          w: 0.92073816
+    m_MetaData:
+    - Mode: 4
+      Tension: 0.5
+    m_Closed: 1
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
   m_Knots:
-    m_KnotsLink: []
+    m_KnotsLink:
+    - Knots:
+      - Spline: 1
+        Knot: 0
+      - Spline: 0
+        Knot: 1
 --- !u!114 &8708206032679748873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2515846524388442969}
   - component: {fileID: 2078157193425058763}
+  - component: {fileID: 3629077556799776140}
   m_Layer: 0
   m_Name: MenuSplines
   m_TagString: Untagged
@@ -178,6 +314,7 @@ Transform:
   m_Children:
   - {fileID: 8133006692046889719}
   - {fileID: 6754546405381246104}
+  - {fileID: 8628568232761980582}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2078157193425058763
@@ -192,8 +329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2649e27c4044f940828a2caa09cb182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 660074113459198629}
+  MenuCamera: {fileID: 660074113459198629}
+  GameplayCamera: {fileID: 2514873976842517404}
   Dolly: {fileID: 607231047178538034}
+  Speed: 0.5
   SmoothCurve:
     serializedVersion: 2
     m_Curve:
@@ -218,6 +357,31 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!320 &3629077556799776140
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373803918086236127}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: b23ba0d1fc4cb324f976d65e1f17e308, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -4131872143895540298, guid: b23ba0d1fc4cb324f976d65e1f17e308, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8258263106263163226, guid: b23ba0d1fc4cb324f976d65e1f17e308, type: 2}
+    value: {fileID: 4432975196127038500}
+  - key: {fileID: 7126801631479812726, guid: b23ba0d1fc4cb324f976d65e1f17e308, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - 986cc5ade25e348418c4a4d160a20cb3: {fileID: 660074113459198629}
+    - ca0b9ad1248394347a3c7bca04460b49: {fileID: 2514873976842517404}
 --- !u!1 &4256664858911186502
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,29 +2,40 @@ using System.Collections;
 using Unity.Cinemachine;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class MenuCameraManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
-    public CinemachineCamera Camera;
+    public CinemachineCamera MenuCamera;
+    public CinemachineCamera GameplayCamera;
     public CinemachineSplineDolly Dolly;
-    float Speed = 0.5f;
+    public float Speed = 0.5f;
     public AnimationCurve SmoothCurve;
+    const int MaxPriority = 100;
+
+    public void GoToPlay()
+    {
+        MenuCamera.Priority.Value = 0;
+        GetComponent<PlayableDirector>().Play();
+    }
 
     public void GoToMainMenu()
     {
+        MenuCamera.Priority.Value = MaxPriority;
+        GameplayCamera.Priority.Value = 0;
         StartCoroutine(GoToTargetSplineValue(0.5f));
     }
 
     public void GoToCredits()
     {
-        StartCoroutine(GoToTargetSplineValue(0));
+        StartCoroutine(GoToTargetSplineValue(1));
     }
 
     public void GoToTutorial()
     {
-        StartCoroutine(GoToTargetSplineValue(1));
+        StartCoroutine(GoToTargetSplineValue(0));
     }
 
     IEnumerator GoToTargetSplineValue(float TargetValue)
@@ -60,6 +71,10 @@ public class MenuCameraManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.M))
         {
             GoToMainMenu();
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            GoToPlay();
         }
     }
 }
