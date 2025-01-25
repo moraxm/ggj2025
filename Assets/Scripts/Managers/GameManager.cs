@@ -91,14 +91,12 @@ public class GameManager : MonoBehaviour
 				_roundsObjects[i] = roundObject;
 			}
 		}
+	}
 
-		IEnumerator GameBeginningCoroutine()
-		{
-			yield return null;
-			_musicController.SetParameterForLevel(_currentLevel);
-			StartLevel(0u);
-		}
-		StartCoroutine(GameBeginningCoroutine());
+	public void StartGame()
+	{
+		_musicController.SetParameterForLevel(_currentLevel);
+		StartLevel(0u);
 	}
 
 	private void Update()
