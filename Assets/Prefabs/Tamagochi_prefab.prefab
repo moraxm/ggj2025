@@ -1992,7 +1992,7 @@ MonoBehaviour:
   _invertedX: 0
   _invertedY: 0
   _zoomEnabled: 1
-  _maxDistance: {x: -5, y: -10}
+  _maxDistance: {x: 20, y: 80}
   _factorZoom: 2
 --- !u!1 &6337031194067384966
 GameObject:
