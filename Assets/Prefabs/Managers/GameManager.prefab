@@ -662,6 +662,13 @@ MonoBehaviour:
   _objectsInitialTransform: {fileID: 0}
   _objectsPlayTransform: {fileID: 0}
   _timeRemainingText: {fileID: 3304336404264444081}
+  _wrapEvtRef:
+    Guid:
+      Data1: 1599717170
+      Data2: 1161648506
+      Data3: -175011692
+      Data4: 268690012
+    Path: event:/Wrap
   _bubblesRemainingText: {fileID: 9002528227136712604}
   _timeToMoveObjectToPlayPos: 1
   _timeToMoveObjectBackToInitPos: 1

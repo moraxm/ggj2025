@@ -94,8 +94,8 @@ MonoBehaviour:
     Path: 
   _longPopEvent:
     Guid:
-      Data1: 1179639254
-      Data2: 1312323568
-      Data3: 968533124
-      Data4: -1712234954
-    Path: event:/BubblePop
+      Data1: -1191638186
+      Data2: 1306329960
+      Data3: 1485035429
+      Data4: 1822713610
+    Path: event:/BubblePopSoft

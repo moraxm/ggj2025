@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f4258cb8-0c50-4047-a473-88fb57defd65}">
+		<property name="assetPath">
+			<value>wrap.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>26.005583333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0241b15-1520-47a3-a430-768bf8e5cc19}</destination>
+		</relationship>
+	</object>
+</objects>

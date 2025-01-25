@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Bubbles_mat
+    second: {fileID: 2100000, guid: ac4531beb3ebf4c4a878a748dfa1e782, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Outside_mat
     second: {fileID: 2100000, guid: e3e38c57c48b2dd44ada4bc41087745d, type: 2}
   materials:
@@ -51,7 +56,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
