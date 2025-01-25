@@ -440,14 +440,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 83264763495544335, guid: 845d3afd3c4429e4db60df5862c0d2ff, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 75da0c254269b444ab81f7143d9306fb, type: 2}
-    - target: {fileID: 1650079264713447937, guid: 845d3afd3c4429e4db60df5862c0d2ff, type: 3}
-      propertyPath: _playerInput
-      value: 
-      objectReference: {fileID: 1515391066}
     - target: {fileID: 4727535257128834302, guid: 845d3afd3c4429e4db60df5862c0d2ff, type: 3}
       propertyPath: m_Name
       value: Tamagochi_prefab
