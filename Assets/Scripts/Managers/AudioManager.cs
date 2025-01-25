@@ -137,4 +137,16 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 	#endregion
+
+	#region Event Info
+	public int GetTimelinePosition(EventInstance eventInstance)
+	{
+		if (!eventInstance.isValid())
+		{
+			return -1;
+		}
+		eventInstance.getTimelinePosition(out int position);
+		return position;
+	}
+	#endregion
 }
