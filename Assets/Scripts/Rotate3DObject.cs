@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,10 +27,23 @@ public class Rotate3DObject : MonoBehaviour
     [SerializeField] private Vector2 _maxDistance = new Vector2(-5f, -10f);
     [SerializeField] private float _factorZoom = 2;
 
-    private Camera _camera = null;
-	private PlayerInput _playerInput = null;
 
-	#endregion
+    [SerializeField] private bool _useAceleration = false;
+    [SerializeField] private float _weight = 40;
+    [SerializeField] private float _accelerationBrakeMagnitude = -3;
+    [SerializeField] private float _maxAceleration = 30;
+    [SerializeField] private float _maxVelocity = 30;
+
+    private Vector2 _velocity = Vector2.zero;
+    private Vector2 _acceleration = Vector2.zero;
+    private Vector2 _brakeVector;
+    private Vector2 _originalSignVelocity;
+
+    private Camera _camera = null;
+    private PlayerInput _playerInput = null;
+
+    #endregion
+
 
     private void Start()
     {
@@ -108,16 +122,92 @@ public class Rotate3DObject : MonoBehaviour
 
     private void ManageRotation()
     {
+        if (_useAceleration)
+        {
+            AddNegativeAceleration();
+            UpdateRotationWithAceleration();
+        }
+
+
         if (!_rotateAllowed)
         {
             return;
         }
 
+        if (_useAceleration)
+        {
+            ReadAceleration();
+        }
+        else
+        {
+            RotationLineal();
+        }
+        
+    }
+
+    private void RotationLineal()
+    {
         Vector2 MouseDelta = GetMouseLookInput();
 
-        MouseDelta *= _speed * Time.deltaTime;
+        MouseDelta *= _speed * GetFrameDuration();
 
         transform.Rotate(Vector3.up * (_invertedX ? 1 : -1), MouseDelta.x, Space.World);
         transform.Rotate(Vector3.right * (_invertedY ? -1 : 1), MouseDelta.y, Space.World);
+    }
+
+    private void ReadAceleration()
+    {
+        Vector2 MouseDelta = GetMouseLookInput();
+
+        //f = m * a
+        _acceleration += MouseDelta / _weight;
+        _acceleration = Vector2.ClampMagnitude(_acceleration, _maxAceleration);
+        _brakeVector = _acceleration.normalized * -1 * _accelerationBrakeMagnitude;
+        _originalSignVelocity = CalculateSign(_acceleration);
+    }
+
+    private void AddNegativeAceleration()
+    {
+        if (!IsVelocityZero())
+        {
+            _acceleration += _brakeVector * GetFrameDuration();
+        }
+    }
+
+    void UpdateRotationWithAceleration()
+    {
+        _velocity += _acceleration * GetFrameDuration();
+        _velocity = Vector2.ClampMagnitude(_velocity, _maxVelocity);
+
+        Vector2 currentSign =CalculateSign(_velocity);
+
+        if (!IsVelocityZero() && currentSign == _originalSignVelocity)
+        {
+            transform.Rotate(Vector3.right * (_invertedY ? -1 : 1), _velocity.y, Space.World);
+            transform.Rotate(Vector3.up * (_invertedX ? 1 : -1), _velocity.x, Space.World);
+        }
+        else
+        {
+            _velocity = Vector3.zero;
+            _acceleration = Vector3.zero;
+        }
+    }
+
+    bool IsVelocityZero()
+    {
+        return _velocity.sqrMagnitude < 0.001f;
+    }
+
+    float GetFrameDuration()
+    {
+        float t = Time.deltaTime;
+        return t;
+    }
+
+    Vector2 CalculateSign(Vector2 reference)
+    {
+        int signX = reference.x < 0 ? -1 : 1;
+        int signy = reference.y < 0 ? -1 : 1;
+        return new Vector2(signX, signy);
     }
 }
