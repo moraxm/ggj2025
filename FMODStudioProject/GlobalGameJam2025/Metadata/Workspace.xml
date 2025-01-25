@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Workspace" id="{f4f3a11b-20b8-4df1-a29b-5e6b0194b548}">
 		<property name="builtBanksOutputDirectory">
-			<value>../../Assets/Audio/Banks</value>
+			<value>../../SoundBanks</value>
 		</property>
 		<relationship name="masterEventFolder">
 			<destination>{1e22e641-a717-4813-a9b1-b70c0282ff92}</destination>

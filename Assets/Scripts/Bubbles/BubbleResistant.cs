@@ -5,7 +5,14 @@ public class BubbleResistant : Bubble
 	[SerializeField]
 	private uint _popsAmount = 2u;
 
+	protected PlayOneShotAudio _playOneShotAudio = null;
 	private uint _timesPopped = 0u;
+
+	protected override void Awake()
+	{
+		base.Awake();
+		_playOneShotAudio = GetComponent<PlayOneShotAudio>();
+	}
 
 	public override void Push()
 	{

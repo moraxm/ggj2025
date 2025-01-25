@@ -5,8 +5,15 @@ public class BubbleLongPush : Bubble
 	[SerializeField]
 	private float _timeToPush = 1.0f;
 
+	protected PlayOneShotAudio _playOneShotAudio = null;
 	private bool _pushed = false;
 	private float _timePushed = 0.0f;
+
+	protected override void Awake()
+	{
+		base.Awake();
+		_playOneShotAudio = GetComponent<PlayOneShotAudio>();
+	}
 
 	protected override void Update()
 	{

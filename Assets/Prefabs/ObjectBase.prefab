@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7493372862167280414}
   - component: {fileID: 4527565067093907148}
   - component: {fileID: 3961902418576458862}
+  - component: {fileID: 564184233585509126}
   m_Layer: 0
   m_Name: ObjectBase
   m_TagString: Untagged
@@ -66,3 +67,18 @@ MonoBehaviour:
   _zoomEnabled: 1
   _maxDistance: {x: 20, y: 80}
   _factorZoom: 2
+--- !u!114 &564184233585509126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027400337014508177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f009808cc1cd8a41a370063d9f7c966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadType: 0
+  _banks: []
+  _preloadSamples: 1
