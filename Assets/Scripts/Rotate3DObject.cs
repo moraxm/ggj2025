@@ -27,7 +27,6 @@ public class Rotate3DObject : MonoBehaviour
     [SerializeField] private Vector2 _maxDistance = new Vector2(-5f, -10f);
     [SerializeField] private float _factorZoom = 2;
 
-<<<<<<< HEAD:Assets/Scripts/Managers/Rotate3DObject.cs
 
     [SerializeField] private bool _useAceleration = false;
     [SerializeField] private float _weight = 40;
@@ -40,13 +39,11 @@ public class Rotate3DObject : MonoBehaviour
     private Vector2 _brakeVector;
     private Vector2 _originalSignVelocity;
 
-    #endregion
-=======
     private Camera _camera = null;
-	private PlayerInput _playerInput = null;
->>>>>>> 303440ee6b8c39b95312d0b756e3b19bf8413513:Assets/Scripts/Rotate3DObject.cs
+    private PlayerInput _playerInput = null;
 
-	#endregion
+    #endregion
+
 
     private void Start()
     {
@@ -148,14 +145,11 @@ public class Rotate3DObject : MonoBehaviour
         
     }
 
-<<<<<<< HEAD:Assets/Scripts/Managers/Rotate3DObject.cs
     private void RotationLineal()
     {
         Vector2 MouseDelta = GetMouseLookInput();
 
-=======
->>>>>>> 303440ee6b8c39b95312d0b756e3b19bf8413513:Assets/Scripts/Rotate3DObject.cs
-        MouseDelta *= _speed * Time.deltaTime;
+        MouseDelta *= _speed * GetFrameDuration();
 
         transform.Rotate(Vector3.up * (_invertedX ? 1 : -1), MouseDelta.x, Space.World);
         transform.Rotate(Vector3.right * (_invertedY ? -1 : 1), MouseDelta.y, Space.World);
