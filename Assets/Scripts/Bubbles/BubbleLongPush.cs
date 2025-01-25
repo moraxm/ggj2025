@@ -49,10 +49,6 @@ public class BubbleLongPush : Bubble
 			_pushed = false;
 			_timePushed = 0.0f;
 		}
-		else
-		{
-			// TODO: Sonido volver de push a normal
-		}
 	}
 
 	private void ActualPop()

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{647a8cf9-67d1-49a5-9f15-96b817c353eb}">
+	<object class="AudioFile" id="{f7714898-29cd-42f1-b374-3d86fb307041}">
 		<property name="assetPath">
-			<value>BubblePop.wav</value>
+			<value>pop16-crispe.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>0.14947845804988663</value>
+			<value>0.26581250000000001</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a0241b15-1520-47a3-a430-768bf8e5cc19}</destination>
