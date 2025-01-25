@@ -318,41 +318,41 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: 0.071
-        y: 1.151
-        z: -0.808
+        x: 0.012
+        y: 1.403
+        z: -3.297
       TangentIn:
         x: 0
         y: 0
-        z: -1.4705251
+        z: -2.8770087
       TangentOut:
         x: 0
         y: 0
-        z: 1.4705251
+        z: 2.8770087
       Rotation:
         value:
-          x: 0.00014915521
-          y: -0.00012551181
-          z: -0.08579827
-          w: 0.99631256
+          x: 0.00007841347
+          y: 0.0056734458
+          z: -0.08603389
+          w: 0.9962761
     - Position:
         x: 0.07
-        y: 1.15
-        z: 3.08
+        y: 1.345
+        z: 2.307
       TangentIn:
         x: 0
         y: 0
-        z: -0.8220713
+        z: -1.2636353
       TangentOut:
         x: 0
         y: 0
-        z: 0.8220713
+        z: 1.2636353
       Rotation:
         value:
-          x: 0.000094184565
-          y: -0.000094125666
-          z: 0.00000006485866
-          w: 1
+          x: 0.021008166
+          y: 0.0035572655
+          z: -0.00022491648
+          w: 0.9997729
     - Position:
         x: 0.07
         y: 1.15
@@ -360,17 +360,17 @@ MonoBehaviour:
       TangentIn:
         x: 0
         y: 0
-        z: -2.2267494
+        z: -2.3166091
       TangentOut:
         x: 0
         y: 0
-        z: 2.2267494
+        z: 2.3166091
       Rotation:
         value:
-          x: -0.000009368852
-          y: 0.000009356729
-          z: -0.000022099362
-          w: 1
+          x: 0.008246906
+          y: -0.00052144454
+          z: -0.000020378786
+          w: 0.99996585
     - Position:
         x: 0.07
         y: 1.15
@@ -378,17 +378,17 @@ MonoBehaviour:
       TangentIn:
         x: 0
         y: 0
-        z: -2.5309296
+        z: -2.5053682
       TangentOut:
         x: 0
         y: 0
-        z: 2.5309296
+        z: 2.5053682
       Rotation:
         value:
-          x: 0.0000020727398
-          y: -0.0000026043058
-          z: 0.11354836
-          w: 0.9935324
+          x: -0.002148907
+          y: 0.0003842932
+          z: 0.113549694
+          w: 0.99352986
     - Position:
         x: 0.07
         y: 1.15
@@ -403,10 +403,10 @@ MonoBehaviour:
         z: 0
       Rotation:
         value:
-          x: -0.028851248
-          y: 2.342485e-10
+          x: -0.02885125
+          y: 4.68497e-10
           z: 0.10600297
-          w: 0.99394715
+          w: 0.9939472
     m_MetaData:
     - Mode: 2
       Tension: 0.5
@@ -669,10 +669,9 @@ GameObject:
   - component: {fileID: 2766086466005558579}
   - component: {fileID: 6568059624366172296}
   - component: {fileID: 6616927174903731457}
-  - component: {fileID: 5544296126989844685}
   - component: {fileID: 2414995948660571945}
   m_Layer: 0
-  m_Name: Dolly Cart
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,8 +685,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766974911546789413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00014918443, y: -0.00012550868, z: -0.08579828, w: 0.99631256}
-  m_LocalPosition: {x: -0.6457976, y: 0.08110893, z: -5.906589}
+  m_LocalRotation: {x: 0.32635346, y: 0.46384552, z: -0.18882626, w: 0.80167663}
+  m_LocalPosition: {x: -0.70479757, y: 0.3331089, z: -8.395589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -751,7 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SplineSettings:
     Spline: {fileID: 1560086489405266534}
-    Position: 0
+    Position: 0.022090236
     Units: 0
   SplineOffset: {x: 0, y: 0, z: 0}
   CameraRotation: 0
@@ -790,56 +789,31 @@ MonoBehaviour:
       Offset: {x: 0, y: 0, z: 0}
       Easing: 1
     m_DataPoints:
-    - m_Index: 0
+    - m_Index: 0.022090236
+      m_Value:
+        LookAt: {fileID: 0}
+        Offset: {x: 0, y: 0, z: 0}
+        Easing: 1
+    - m_Index: 3.042031
+      m_Value:
+        LookAt: {fileID: 3911976825791792024}
+        Offset: {x: -0.20605725, y: 0, z: -0.79326296}
+        Easing: 1
+    - m_Index: 5
       m_Value:
         LookAt: {fileID: 3911976825791792024}
         Offset: {x: 0, y: 0, z: 0}
         Easing: 1
-    - m_Index: 4
-      m_Value:
-        LookAt: {fileID: 3911976825791792024}
-        Offset: {x: 0, y: 0, z: 0}
-        Easing: 1
-    - m_Index: 6
+    - m_Index: 9.5
       m_Value:
         LookAt: {fileID: 4687018205149053955}
         Offset: {x: 0, y: 0, z: 0}
         Easing: 1
-    - m_Index: 20.118
+    - m_Index: 22.608356
       m_Value:
         LookAt: {fileID: 3911976825791792024}
-        Offset: {x: 0, y: 0, z: 0}
+        Offset: {x: -0.5150586, y: -0.007520795, z: -1.4632773}
         Easing: 1
---- !u!114 &5544296126989844685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766974911546789413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450f466b666a79a4698f2b19a5c87c03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SplineSettings:
-    Spline: {fileID: 1560086489405266534}
-    Position: 0
-    Units: 0
-  UpdateMethod: 0
-  AutomaticDolly:
-    Enabled: 0
-    Method:
-      rid: -2
-  TrackingTarget: {fileID: 0}
-  m_LegacyPosition: -1
-  m_LegacyUnits: 0
-  m_LegacySpline: {fileID: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!95 &2414995948660571945
 Animator:
   serializedVersion: 7
@@ -982,7 +956,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 8d83b92666cc7d24f91ce253257aeafc, type: 2}
-  m_InitialState: 0
+  m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -991,9 +965,12 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 4748809473039128115, guid: 8d83b92666cc7d24f91ce253257aeafc, type: 2}
     value: {fileID: 2414995948660571945}
+  - key: {fileID: 7297690213689962175, guid: 8d83b92666cc7d24f91ce253257aeafc, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - d09452d038b78a647ba8b3d813101958: {fileID: 2766086466005558579}
+    - 16ac3a5cd18af1b41ae85b1afc20941e: {fileID: 0}
 --- !u!1 &8218099289351999343
 GameObject:
   m_ObjectHideFlags: 0
