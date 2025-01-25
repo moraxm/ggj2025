@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
 	private Action _onRotatePerformed = null;
 	private Action _onRotateCancelled = null;
 	private Action _onBubblePopPerformed = null;
+	private Action _onBackPerformed = null;
 
 	public static InputManager Instance => _instance;
 
@@ -34,6 +35,10 @@ public class InputManager : MonoBehaviour
 	{
 		_onBubblePopPerformed += onBubblePopPerformed;
 	}
+	public void RegisterOnBackPerformed(Action onBackPerformed)
+	{
+		_onBackPerformed += onBackPerformed;
+	}
 
 	public void UnregisterOnRotateStarted(Action onRotateStarted)
 	{
@@ -50,6 +55,10 @@ public class InputManager : MonoBehaviour
 	public void UnregisterOnBubblePopPerformed(Action onBubblePopPerformed)
 	{
 		_onBubblePopPerformed -= onBubblePopPerformed;
+	}
+	public void UnregisterOnBackPerformed(Action onBackPerformed)
+	{
+		_onBackPerformed -= onBackPerformed;
 	}
 
 	private void Awake()
@@ -92,6 +101,11 @@ public class InputManager : MonoBehaviour
 			{
 				_bubblePopAction.performed += OnBubblePopPerformed;
 			}
+			InputAction backAction = _playerInput.currentActionMap.FindAction("Back");
+			if (backAction != null)
+			{
+				backAction.performed += OnBackperformed;
+			}
 
 			_deltaInputAction = _playerInput.currentActionMap.FindAction("Delta");
 			_zoomInputAction = _playerInput.currentActionMap.FindAction("Zoom");
@@ -112,10 +126,14 @@ public class InputManager : MonoBehaviour
 					rotateInputAction.performed -= OnRotatePerformed;
 					rotateInputAction.canceled -= OnRotateCancelled;
 				}
-				InputAction bubblePopInputAction = actionMap.FindAction("BubblePop");
-				if (bubblePopInputAction != null)
+				if (_bubblePopAction != null)
 				{
-					bubblePopInputAction.performed -= OnBubblePopPerformed;
+					_bubblePopAction.performed -= OnBubblePopPerformed;
+				}
+				InputAction backAction = _playerInput.currentActionMap.FindAction("Back");
+				if (backAction != null)
+				{
+					backAction.performed -= OnBackperformed;
 				}
 			}
 		}
@@ -139,6 +157,11 @@ public class InputManager : MonoBehaviour
 	private void OnBubblePopPerformed(InputAction.CallbackContext context)
 	{
 		_onBubblePopPerformed?.Invoke();
+	}
+
+	private void OnBackperformed(InputAction.CallbackContext context)
+	{
+		_onBackPerformed?.Invoke();
 	}
 
 	public bool BubblePopReleased()
