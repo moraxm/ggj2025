@@ -27,7 +27,10 @@ public class MainMenuManager : MonoBehaviour
         {
             InputManager.Instance.UnregisterOnBackPerformed(OnBackPressed);
         }
-		EventSystem.current.SetSelectedGameObject(null);
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
 	}
 
 	public void OnPlay()

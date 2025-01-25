@@ -180,7 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d244089723723c740a8ed2bfea8d57ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultObject: {fileID: 1169514141055051989}
+  DefaultMainMenuObject: {fileID: 1169514141055051989}
+  DefaultHowToPlayObject: {fileID: 0}
+  DefaultCreditsObject: {fileID: 0}
+  IsInMainMenuMainScreen: 0
   _menuCameraManager: {fileID: 0}
 --- !u!1 &1169514141055051989
 GameObject:
