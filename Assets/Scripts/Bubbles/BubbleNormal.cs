@@ -18,13 +18,13 @@ public class BubbleNormal : Bubble
 
 	public override void Push()
 	{
-		base.Push();
 		_playOneShotAudio.Play(_normalPushEvent);
+		base.Push();
 	}
 
 	public override void Pop()
 	{
-		base.Pop();
 		_playOneShotAudio.Play(_normalPopEvent);
+		base.Pop();
 	}
 }

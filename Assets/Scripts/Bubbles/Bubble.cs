@@ -38,5 +38,6 @@ public abstract class Bubble : MonoBehaviour
         {
             _collider.enabled = false;
 		}
+        GameManager.Instance.OnNotifyPoppedBubble();
     }
 }

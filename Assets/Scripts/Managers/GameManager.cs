@@ -1,0 +1,152 @@
+using System.Collections;
+using TMPro;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+	[System.Serializable]
+	private struct LevelInfo
+	{
+		public BurbujasCreator ObjectPrefab;
+		public float RoundTime;
+	}
+
+	private static GameManager _instance = null;
+
+	public static GameManager Instance => _instance;
+
+	[SerializeField]
+	private Transform _objectsInitialTransform = null;
+	[SerializeField]
+	private Transform _objectsPlayTransform = null;
+	[SerializeField]
+	private TextMeshProUGUI _timeRemainingText = null;
+	[SerializeField]
+	private TextMeshProUGUI _bubblesRemainingText = null;
+	[SerializeField]
+	private LevelInfo[] _levelsInfo = null;
+
+	private BurbujasCreator[] _roundsObjects = null;
+	private uint _currentLevel = 0u;
+	private float _roundTimeRemaining = 0.0f;
+	private bool _playing = false;
+	private uint _bubblesRemaining = 0u;
+
+	private float RoundTimeRemaning
+	{
+		get
+		{
+			return _roundTimeRemaining;
+		}
+		set
+		{
+			_roundTimeRemaining = value;
+			_timeRemainingText.text = ((uint)value).ToString();
+		}
+	}
+
+	private uint BubblesRemaining
+	{
+		get
+		{
+			return _bubblesRemaining;
+		}
+		set
+		{
+			_bubblesRemaining = value;
+			_bubblesRemainingText.text = value.ToString();
+		}
+	}
+
+	private void Awake()
+	{
+		if (_instance == null)
+		{
+			_instance = this;
+			DontDestroyOnLoad(gameObject);
+			Init();
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	private void Init()
+	{
+		_roundsObjects = new BurbujasCreator[_levelsInfo.Length];
+		for (int i = 0; i < _levelsInfo.Length; ++i)
+		{
+			BurbujasCreator roundObject = Instantiate(_levelsInfo[i].ObjectPrefab, _objectsInitialTransform.position, Quaternion.identity);
+			if (roundObject != null)
+			{
+				_roundsObjects[i] = roundObject;
+			}
+		}
+
+		IEnumerator GameBeginningCoroutine()
+		{
+			yield return null;
+			StartLevel(0u);
+		}
+		StartCoroutine(GameBeginningCoroutine());
+	}
+
+	private void Update()
+	{
+		if (_playing)
+		{
+			RoundTimeRemaning = Mathf.Max(RoundTimeRemaning - Time.deltaTime, 0.0f);
+			if (RoundTimeRemaning <= 0.0f)
+			{
+				GameOver();
+			}
+		}
+	}
+
+	private void StartLevel(uint level)
+	{
+		IEnumerator StartLevelCoroutine()
+		{
+			_roundsObjects[level].transform.position = _objectsPlayTransform.position;
+			yield return new WaitForSeconds(2.0f);
+			Debug.Log("Round started");
+			_playing = true;
+		}
+
+		_currentLevel = level;
+		Debug.Log("Creating round " + level);
+		BubblesRemaining = _roundsObjects[level].TotalBubbles;
+		RoundTimeRemaning = _levelsInfo[level].RoundTime;
+
+		StartCoroutine(StartLevelCoroutine());
+	}
+
+	public void OnNotifyPoppedBubble()
+	{
+		--BubblesRemaining;
+		Debug.Log("Popped bubble! Remaning: " + BubblesRemaining);
+		if (BubblesRemaining == 0u)
+		{
+			RoundCompleted();
+		}
+	}
+
+	private void GameOver()
+	{
+		Debug.Log("GAME OVER!");
+		_playing = false;
+	}
+
+	private void RoundCompleted()
+	{
+		Debug.Log("Round Completed!");
+		_playing = false;
+		IEnumerator RoundCompletedCoroutine()
+		{
+			yield return new WaitForSeconds(2.0f);
+			StartLevel(_currentLevel + 1u);
+		}
+		StartCoroutine(RoundCompletedCoroutine());
+	}
+}
