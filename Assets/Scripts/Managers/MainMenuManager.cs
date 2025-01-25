@@ -4,16 +4,20 @@ using UnityEngine.EventSystems;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _defaultObject = null;
+    public GameObject DefaultMainMenuObject = null;
+	public GameObject DefaultHowToPlayObject = null;
+	public GameObject DefaultCreditsObject = null;
+    [HideInInspector]
+    public bool IsInMainMenuMainScreen = false;
 
-    [SerializeField]
+	[SerializeField]
     private MenuCameraManager _menuCameraManager = null;
 
 	private void OnEnable()
 	{
-        InputManager.Instance.RegisterOnBackPerformed(OnExit);
-        EventSystem.current.SetSelectedGameObject(_defaultObject);
+        IsInMainMenuMainScreen = true;
+		EventSystem.current.SetSelectedGameObject(DefaultMainMenuObject);
+		InputManager.Instance.RegisterOnBackPerformed(OnBackPressed);
 	}
 
 	private void OnDisable()
@@ -21,8 +25,9 @@ public class MainMenuManager : MonoBehaviour
         InputManager inputManager = InputManager.Instance;
         if (inputManager != null)
         {
-            InputManager.Instance.UnregisterOnBackPerformed(OnExit);
+            InputManager.Instance.UnregisterOnBackPerformed(OnBackPressed);
         }
+		EventSystem.current.SetSelectedGameObject(null);
 	}
 
 	public void OnPlay()
@@ -32,7 +37,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnHowToPlay()
     {
-        _menuCameraManager.GoToTutorial();
+        _menuCameraManager.GoToHowToPlay();
     }
 
     public void OnCredits()
@@ -43,9 +48,26 @@ public class MainMenuManager : MonoBehaviour
     public void OnExit()
     {
 #if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
+		EditorApplication.isPlaying = false;
 #elif !UNITY_ANDROID
         Application.Quit();
 #endif
+	}
+
+	public void OnBackPressed()
+    {
+        if (_menuCameraManager.IsTransitioning)
+        {
+            return;
+        }
+
+        if (IsInMainMenuMainScreen)
+        {
+            OnExit();
+        }
+        else
+        {
+            _menuCameraManager.GoToMainMenu();
+		}
     }
 }

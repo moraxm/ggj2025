@@ -3,7 +3,6 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Playables;
-using UnityEngine.UI;
 
 public class MenuCameraManager : MonoBehaviour
 {
@@ -15,43 +14,78 @@ public class MenuCameraManager : MonoBehaviour
     public CinemachineSplineDolly Dolly;
     public float Speed = 0.5f;
     public AnimationCurve SmoothCurve;
+    [HideInInspector]
+    public bool IsTransitioning = false;
     const int MaxPriority = 100;
 
     public void GoToPlay()
     {
         _mainMenuManager.enabled = false;
-        EventSystem.current.SetSelectedGameObject(null);
 		MenuCamera.Priority.Value = 0;
         GetComponent<PlayableDirector>().Play();
     }
 
     public void GoToMainMenu()
     {
-        MenuCamera.Priority.Value = MaxPriority;
-        GameplayCamera.Priority.Value = 0;
-        StartCoroutine(GoToMenuTargetSplineValue(0.5f));
+        if (!IsTransitioning)
+        {
+			MenuCamera.Priority.Value = MaxPriority;
+			GameplayCamera.Priority.Value = 0;
+			StartCoroutine(GoToMenuTargetSplineValue(0.5f));
+        }
     }
 
-    public void GoToCredits()
+	public void GoToHowToPlay()
     {
-        _mainMenuManager.enabled = false;
-		StartCoroutine(GoToTargetSplineValue(1));
-    }
+        if (!IsTransitioning)
+        {
+			EventSystem.current.SetSelectedGameObject(null);
+			StartCoroutine(GoToHowToPlayTargetSplineValue(0));
+        }
+	}
 
-    public void GoToTutorial()
+	public void GoToCredits()
     {
-        _mainMenuManager.enabled = false;
-		StartCoroutine(GoToTargetSplineValue(0));
+		if (!IsTransitioning)
+		{
+			EventSystem.current.SetSelectedGameObject(null);
+			StartCoroutine(GoToCreditsTargetSplineValue(1));
+		}
     }
 
     IEnumerator GoToMenuTargetSplineValue(float TargetValue)
     {
 		yield return GoToTargetSplineValue(TargetValue);
-		_mainMenuManager.enabled = true;
+        // Only when coming back from game
+        if (!_mainMenuManager.enabled)
+        {
+            _mainMenuManager.enabled = true;
+        }
+        else
+        {
+            // Just select default object
+			EventSystem.current.SetSelectedGameObject(_mainMenuManager.DefaultMainMenuObject);
+            _mainMenuManager.IsInMainMenuMainScreen = true;
+		}
+	}
+
+    IEnumerator GoToHowToPlayTargetSplineValue(float TargetValue)
+    {
+        yield return GoToTargetSplineValue(TargetValue);
+        EventSystem.current.SetSelectedGameObject(_mainMenuManager.DefaultHowToPlayObject);
+        _mainMenuManager.IsInMainMenuMainScreen = false;
+	}
+
+	IEnumerator GoToCreditsTargetSplineValue(float TargetValue)
+	{
+		yield return GoToTargetSplineValue(TargetValue);
+		EventSystem.current.SetSelectedGameObject(_mainMenuManager.DefaultCreditsObject);
+		_mainMenuManager.IsInMainMenuMainScreen = false;
 	}
 
     IEnumerator GoToTargetSplineValue(float TargetValue)
     {
+        IsTransitioning = true;
         float CurrentValue = Dolly.CameraPosition;
         float f = 0;
 
@@ -61,6 +95,7 @@ public class MenuCameraManager : MonoBehaviour
             f += Time.deltaTime * Speed;
             yield return null;
         }
+		IsTransitioning = false;
 	}
 
     void Update()
@@ -71,7 +106,7 @@ public class MenuCameraManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
-            GoToTutorial();
+            GoToHowToPlay();
         }
         else if (Input.GetKeyDown(KeyCode.M))
         {

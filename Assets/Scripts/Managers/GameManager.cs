@@ -146,12 +146,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private void GameOver()
-	{
-		Debug.Log("GAME OVER!");
-		_playing = false;
-	}
-
 	private void RoundCompleted()
 	{
 		Debug.Log("Round Completed!");
@@ -170,8 +164,52 @@ public class GameManager : MonoBehaviour
 			// Destroy the object
 			Destroy(objectTransform.gameObject);
 			yield return new WaitForSeconds(2.0f);
-			StartLevel(_currentLevel + 1u);
+			// Check next round
+			if (_currentLevel < _levelsInfo.Length - 1)
+			{
+				StartLevel(_currentLevel + 1u);
+			}
+			else
+			{
+				// Last round completed
+				Victory();
+			}
 		}
 		StartCoroutine(RoundCompletedCoroutine());
+	}
+
+	private void Victory()
+	{
+		IEnumerator VictoryCoroutine()
+		{
+			yield return new WaitForSeconds(3.0f);
+			// TODO: Finale here
+			GoBackToMainMenu();
+		}
+
+		Debug.Log("VICTORY!");
+		StartCoroutine(VictoryCoroutine());
+	}
+
+	private void GameOver()
+	{
+		IEnumerator GameOverCoroutine()
+		{
+			yield return new WaitForSeconds(3.0f);
+			GoBackToMainMenu();
+		}
+
+		Debug.Log("GAME OVER!");
+		_playing = false;
+		StartCoroutine(GameOverCoroutine());
+	}
+
+	private void GoBackToMainMenu()
+	{
+		MenuCameraManager menuCameraManager = FindFirstObjectByType<MenuCameraManager>();
+		if (menuCameraManager != null)
+		{
+			menuCameraManager.GoToMainMenu();
+		}
 	}
 }
