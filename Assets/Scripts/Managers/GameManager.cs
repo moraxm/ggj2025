@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 	private bool _playing = false;
 	private uint _bubblesRemaining = 0u;
 
+	public bool IsPlaying => _playing;
+
 	private float RoundTimeRemaning
 	{
 		get
@@ -108,7 +110,8 @@ public class GameManager : MonoBehaviour
 	{
 		IEnumerator StartLevelCoroutine()
 		{
-			_roundsObjects[level].transform.position = _objectsPlayTransform.position;
+			// TODO: Smoothly move object into camera view
+			_roundsObjects[_currentLevel].transform.position = _objectsPlayTransform.position;
 			yield return new WaitForSeconds(2.0f);
 			Debug.Log("Round started");
 			_playing = true;
@@ -144,6 +147,8 @@ public class GameManager : MonoBehaviour
 		_playing = false;
 		IEnumerator RoundCompletedCoroutine()
 		{
+			// TODO: Move object outside of camera view
+			Destroy(_roundsObjects[_currentLevel].gameObject);
 			yield return new WaitForSeconds(2.0f);
 			StartLevel(_currentLevel + 1u);
 		}
