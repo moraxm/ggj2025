@@ -43,7 +43,7 @@ MonoBehaviour:
   Path: SoundBanks/Desktop/Tamagotchi.bank
   Name: Tamagotchi
   StudioPath: bank:/Tamagotchi
-  lastModified: 638734089962024412
+  lastModified: 638734170803226784
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: SoundBanks/Desktop/Bubble.bank
   Name: Bubble
   StudioPath: bank:/Bubble
-  lastModified: 638734089961959095
+  lastModified: 638734170802598601
   FileSizes:
   - Name: Desktop
     Value: 4032
@@ -93,7 +93,7 @@ MonoBehaviour:
   - {fileID: 4263547817342945306}
   StringsBanks:
   - {fileID: 7331699920777043970}
-  cacheTime: 638734131142250215
+  cacheTime: 638734170803226784
   cacheVersion: 131622
 --- !u!114 &3208656082286860304
 MonoBehaviour:
@@ -134,7 +134,7 @@ MonoBehaviour:
   Path: SoundBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734131142240212
+  lastModified: 638734170803040646
   FileSizes:
   - Name: Desktop
     Value: 1796000
@@ -181,7 +181,7 @@ MonoBehaviour:
   Path: SoundBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734131142250215
+  lastModified: 638734170803130837
   FileSizes:
   - Name: Desktop
     Value: 952
