@@ -45,9 +45,20 @@ public class MusicController : MonoBehaviour
 		_lastPlaybackPosition = pos;
 	}
 
-	public void ChangeParameter(float newValue)
-    {
-		_parameterToApply = newValue;
+	public void SetParameterForLevel(uint level)
+	{
+		switch (level)
+		{
+			case 0u:
+				_parameterToApply = 1.0f;
+				break;
+			case 1u:
+				_parameterToApply = 3.0f;
+				break;
+			default:
+				++_parameterToApply;
+				break;
+		}
 	}
 
 	public void SetReadyForFinale()

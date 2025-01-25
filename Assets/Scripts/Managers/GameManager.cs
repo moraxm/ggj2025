@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance => _instance;
 
 	[SerializeField]
+	private MusicController _musicController = null;
+	[SerializeField]
 	private Transform _objectsInitialTransform = null;
 	[SerializeField]
 	private Transform _objectsPlayTransform = null;
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
 		IEnumerator GameBeginningCoroutine()
 		{
 			yield return null;
+			_musicController.SetParameterForLevel(_currentLevel);
 			StartLevel(0u);
 		}
 		StartCoroutine(GameBeginningCoroutine());
@@ -153,6 +156,9 @@ public class GameManager : MonoBehaviour
 		IEnumerator RoundCompletedCoroutine()
 		{
 			yield return new WaitForSeconds(1.0f);
+
+			_musicController.SetParameterForLevel(_currentLevel + 1);
+
 			Transform objectTransform = _roundsObjects[_currentLevel].transform;
 			float timeElapsed = 0.0f;
 			while (timeElapsed < _timeToMoveObjectBackToInitPos)

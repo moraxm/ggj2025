@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6807986685413448110, guid: 9413efac721c6a847aef99baeee0394e, type: 3}
+      propertyPath: _musicController
+      value: 
+      objectReference: {fileID: 7126826594593518756}
     - target: {fileID: 7357585715282159399, guid: 9413efac721c6a847aef99baeee0394e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -334,6 +338,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2364350405797584132, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
   m_PrefabInstance: {fileID: 2705602187113085848}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7126826594593518756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+  m_PrefabInstance: {fileID: 2705602187113085848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588f9bd63c8901249bbc272ac1103123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8262851538487753901
 PrefabInstance:
   m_ObjectHideFlags: 0
