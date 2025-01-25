@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
 	private Transform _objectsPlayTransform = null;
 	[SerializeField]
 	private TextMeshProUGUI _timeRemainingText = null;
+	[SerializeField]
+	private EventReference _wrapEvtRef;
 	[SerializeField]
 	private TextMeshProUGUI _bubblesRemainingText = null;
 	[SerializeField]
@@ -91,6 +95,7 @@ public class GameManager : MonoBehaviour
 				_roundsObjects[i] = roundObject;
 			}
 		}
+		Invoke("StartGame", 0.1f);
 	}
 
 	public void StartGame()
@@ -115,7 +120,11 @@ public class GameManager : MonoBehaviour
 	{
 		IEnumerator StartLevelCoroutine()
 		{
-			yield return new WaitForSeconds(1.0f);
+			EventInstance wrapEvent = AudioManager.Instance.CreateInstance(_wrapEvtRef);
+			wrapEvent.start();
+			yield return new WaitForSeconds(4.0f);
+			wrapEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+			wrapEvent.release();
 			Transform objectTransform = _roundsObjects[_currentLevel].transform;
 			float timeElapsed = 0.0f;
 			while (timeElapsed < _timeToMoveObjectToPlayPos)
