@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "PassThrough",
+                    "id": "1a6a7520-69d7-4a84-9f93-a7047981326a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -42,17 +51,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "BubblePop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "33197d88-8ed0-4c10-9417-0ac50614bffe",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Delta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -97,6 +95,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RotateClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a611116e-0ef1-40f8-a901-3b5f7785f185",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
