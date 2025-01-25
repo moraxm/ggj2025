@@ -21,7 +21,7 @@ public class BubbleResistant : Bubble
 
 	public override void Push()
 	{
-		_playOneShotAudio.Play(_resistantPopEvent);
+		_playOneShotAudio.Play(_resistantPushEvent);
 		base.Push();
 	}
 

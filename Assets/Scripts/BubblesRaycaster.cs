@@ -36,8 +36,12 @@ public class BubblesRaycaster : MonoBehaviour
 		if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
 		{
 			Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
-			bubble.Push();
-			_pushedBubble = bubble;
+			// We can also collide with the object itself
+			if (bubble != null)
+			{
+				bubble.Push();
+				_pushedBubble = bubble;
+			}
 		}
 	}
 
