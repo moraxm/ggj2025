@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private TextMeshProUGUI _bubblesRemainingText = null;
 	[SerializeField]
+	private float _timeToMoveObjectToPlayPos = 1.0f;
+	[SerializeField]
+	private float _timeToMoveObjectBackToInitPos = 1.0f;
+	[SerializeField]
 	private LevelInfo[] _levelsInfo = null;
 
 	private BurbujasCreator[] _roundsObjects = null;
@@ -110,8 +114,15 @@ public class GameManager : MonoBehaviour
 	{
 		IEnumerator StartLevelCoroutine()
 		{
-			// TODO: Smoothly move object into camera view
-			_roundsObjects[_currentLevel].transform.position = _objectsPlayTransform.position;
+			yield return new WaitForSeconds(1.0f);
+			Transform objectTransform = _roundsObjects[_currentLevel].transform;
+			float timeElapsed = 0.0f;
+			while (timeElapsed < _timeToMoveObjectToPlayPos)
+			{
+				timeElapsed = Mathf.Min(timeElapsed + Time.deltaTime, _timeToMoveObjectToPlayPos);
+				objectTransform.position = Vector3.Lerp(_objectsInitialTransform.position, _objectsPlayTransform.position, timeElapsed / _timeToMoveObjectToPlayPos); 
+				yield return null;
+			}
 			yield return new WaitForSeconds(2.0f);
 			Debug.Log("Round started");
 			_playing = true;
@@ -147,8 +158,17 @@ public class GameManager : MonoBehaviour
 		_playing = false;
 		IEnumerator RoundCompletedCoroutine()
 		{
-			// TODO: Move object outside of camera view
-			Destroy(_roundsObjects[_currentLevel].gameObject);
+			yield return new WaitForSeconds(1.0f);
+			Transform objectTransform = _roundsObjects[_currentLevel].transform;
+			float timeElapsed = 0.0f;
+			while (timeElapsed < _timeToMoveObjectBackToInitPos)
+			{
+				timeElapsed = Mathf.Min(timeElapsed + Time.deltaTime, _timeToMoveObjectBackToInitPos);
+				objectTransform.position = Vector3.Lerp(_objectsPlayTransform.position, _objectsInitialTransform.position, timeElapsed / _timeToMoveObjectBackToInitPos);
+				yield return null;
+			}
+			// Destroy the object
+			Destroy(objectTransform.gameObject);
 			yield return new WaitForSeconds(2.0f);
 			StartLevel(_currentLevel + 1u);
 		}

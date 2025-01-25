@@ -18,26 +18,17 @@ public class Rotate3DObject : MonoBehaviour
     private float _lastDistanceTouch = 0;
     private bool _pitch2Press = false;
 
-
-    [SerializeField] private bool _useAceleration = false;
-    [SerializeField] private float _weight = 40;
-    [SerializeField] private float _accelerationBrakeMagnitude = -3;
-    [SerializeField] private float _maxAceleration = 30;
-    [SerializeField] private float _maxVelocity = 30;
-
-    private Vector2 _velocity = Vector2.zero;
-    private Vector2 _acceleration = Vector2.zero;
-    private Vector2 _brakeVector;
-    private Vector2 _originalSignVelocity;
-
     private Camera _camera = null;
+
+    [SerializeField] private LayerMask _layerMask;
 
     #endregion
     private void Start()
     {
         _camera = Camera.main;
+        _layerMask = LayerMask.GetMask("Bubble", "Object");
 
-		InitializeInputSystem();
+        InitializeInputSystem();
 	}
 
 	private void OnDestroy()
@@ -81,7 +72,11 @@ public class Rotate3DObject : MonoBehaviour
 
     protected virtual void OnRightClickPressed()
     {
-        _rotateAllowed = true;
+        Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
+        {
+            _rotateAllowed = true;
+        }
     }
 
     protected virtual void OnRightClickReleased()
@@ -157,27 +152,12 @@ public class Rotate3DObject : MonoBehaviour
 
     private void ManageRotation()
     {
-        if (_useAceleration)
-        {
-            AddNegativeAceleration();
-            UpdateRotationWithAceleration();
-        }
-
-
         if (!_rotateAllowed)
         {
             return;
         }
 
-        if (_useAceleration)
-        {
-            ReadAceleration();
-        }
-        else
-        {
-            RotationLineal();
-        }
-        
+        RotationLineal();
     }
 
     private void RotationLineal()
@@ -190,59 +170,9 @@ public class Rotate3DObject : MonoBehaviour
         transform.Rotate(Vector3.right * (_invertedY ? -1 : 1), MouseDelta.y, Space.World);
     }
 
-    private void ReadAceleration()
-    {
-        Vector2 MouseDelta = GetMouseLookInput();
-
-        //f = m * a
-        _acceleration += MouseDelta / _weight;
-        _acceleration = Vector2.ClampMagnitude(_acceleration, _maxAceleration);
-        _brakeVector = _acceleration.normalized * -1 * _accelerationBrakeMagnitude;
-        _originalSignVelocity = CalculateSign(_acceleration);
-    }
-
-    private void AddNegativeAceleration()
-    {
-        if (!IsVelocityZero())
-        {
-            _acceleration += _brakeVector * GetFrameDuration();
-        }
-    }
-
-    void UpdateRotationWithAceleration()
-    {
-        _velocity += _acceleration * GetFrameDuration();
-        _velocity = Vector2.ClampMagnitude(_velocity, _maxVelocity);
-
-        Vector2 currentSign =CalculateSign(_velocity);
-
-        if (!IsVelocityZero() && currentSign == _originalSignVelocity)
-        {
-            transform.Rotate(Vector3.right * (_invertedY ? -1 : 1), _velocity.y, Space.World);
-            transform.Rotate(Vector3.up * (_invertedX ? 1 : -1), _velocity.x, Space.World);
-        }
-        else
-        {
-            _velocity = Vector3.zero;
-            _acceleration = Vector3.zero;
-        }
-    }
-
-    bool IsVelocityZero()
-    {
-        return _velocity.sqrMagnitude < 0.001f;
-    }
-
     float GetFrameDuration()
     {
         float t = Time.deltaTime;
         return t;
-    }
-
-    Vector2 CalculateSign(Vector2 reference)
-    {
-        int signX = reference.x < 0 ? -1 : 1;
-        int signy = reference.y < 0 ? -1 : 1;
-        return new Vector2(signX, signy);
     }
 }

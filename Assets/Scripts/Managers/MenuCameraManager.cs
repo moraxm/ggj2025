@@ -1,13 +1,16 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class MenuCameraManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   
-    public CinemachineCamera MenuCamera;
+    [SerializeField]
+    private MainMenuManager _mainMenuManager = null;
+
+	public CinemachineCamera MenuCamera;
     public CinemachineCamera GameplayCamera;
     public CinemachineSplineDolly Dolly;
     public float Speed = 0.5f;
@@ -16,7 +19,9 @@ public class MenuCameraManager : MonoBehaviour
 
     public void GoToPlay()
     {
-        MenuCamera.Priority.Value = 0;
+        _mainMenuManager.enabled = false;
+        EventSystem.current.SetSelectedGameObject(null);
+		MenuCamera.Priority.Value = 0;
         GetComponent<PlayableDirector>().Play();
     }
 
@@ -24,18 +29,26 @@ public class MenuCameraManager : MonoBehaviour
     {
         MenuCamera.Priority.Value = MaxPriority;
         GameplayCamera.Priority.Value = 0;
-        StartCoroutine(GoToTargetSplineValue(0.5f));
+        StartCoroutine(GoToMenuTargetSplineValue(0.5f));
     }
 
     public void GoToCredits()
     {
-        StartCoroutine(GoToTargetSplineValue(1));
+        _mainMenuManager.enabled = false;
+		StartCoroutine(GoToTargetSplineValue(1));
     }
 
     public void GoToTutorial()
     {
-        StartCoroutine(GoToTargetSplineValue(0));
+        _mainMenuManager.enabled = false;
+		StartCoroutine(GoToTargetSplineValue(0));
     }
+
+    IEnumerator GoToMenuTargetSplineValue(float TargetValue)
+    {
+		yield return GoToTargetSplineValue(TargetValue);
+		_mainMenuManager.enabled = true;
+	}
 
     IEnumerator GoToTargetSplineValue(float TargetValue)
     {
@@ -48,15 +61,8 @@ public class MenuCameraManager : MonoBehaviour
             f += Time.deltaTime * Speed;
             yield return null;
         }
-        
-    }
-    
-    void Start()
-    {
-        
-    }
+	}
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
