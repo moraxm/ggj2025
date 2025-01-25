@@ -409,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 4256664858911186502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.05699998, y: -0.00999999, z: 0.029500008}
+  m_LocalPosition: {x: 0.2339244, y: 0.22642887, z: 0.2363126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SplineSettings:
     Spline: {fileID: 964849078501719985}
-    Position: 0
+    Position: 0.5
     Units: 1
   SplineOffset: {x: 0, y: 0, z: 0}
   CameraRotation: 0

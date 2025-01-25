@@ -7,6 +7,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private GameObject _defaultObject = null;
 
+    [SerializeField]
+    private MenuCameraManager _menuCameraManager = null;
+
 	private void Start()
 	{
         InputManager.Instance.RegisterOnBackPerformed(OnExit);
@@ -24,17 +27,17 @@ public class MainMenuManager : MonoBehaviour
 
 	public void OnPlay()
     {
-
+        _menuCameraManager.GoToPlay();
     }
 
     public void OnHowToPlay()
     {
-
+        _menuCameraManager.GoToTutorial();
     }
 
     public void OnCredits()
     {
-
+        _menuCameraManager.GoToCredits();
     }
 
     public void OnExit()
