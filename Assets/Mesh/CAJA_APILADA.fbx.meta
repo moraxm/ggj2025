@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72401ea50e569cb40a39099bff270367
+guid: 9d29c1d542eaa1c4987a40a2085b3e2c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Muebles_mat
-    second: {fileID: 2100000, guid: 0dd7d1e66ab567849bb9f8f89b93dd30, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: d650227a0d567a340a1f32e8d784a787, type: 2}
+      name: Door_mat
+    second: {fileID: 2100000, guid: 0fc8c0937973fdf4eb0143a35db40028, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
