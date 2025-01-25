@@ -41,7 +41,7 @@ public class MainMenuManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
-#else
+#elif !UNITY_ANDROID
         Application.Quit();
 #endif
     }
