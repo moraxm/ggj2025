@@ -853,19 +853,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1560086489405266534, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[1].Rotation.value.z
-      value: 0.00000006487105
+      value: 0.00000006492072
       objectReference: {fileID: 0}
     - target: {fileID: 1560086489405266534, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.w
-      value: 0.99394715
+      value: 0.9939472
       objectReference: {fileID: 0}
     - target: {fileID: 1560086489405266534, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.x
-      value: -0.028851248
+      value: -0.02885125
       objectReference: {fileID: 0}
     - target: {fileID: 1560086489405266534, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.y
-      value: 2.342485e-10
+      value: 4.68497e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_LocalPosition.x
