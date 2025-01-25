@@ -657,9 +657,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a25d3c809a2f24b8381c7a5e04b929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectsInitialPos: {fileID: 0}
+  _objectsInitialTransform: {fileID: 0}
+  _objectsPlayTransform: {fileID: 0}
   _timeRemainingText: {fileID: 3304336404264444081}
   _bubblesRemainingText: {fileID: 9002528227136712604}
+  _timeToMoveObjectToPlayPos: 1
+  _timeToMoveObjectBackToInitPos: 1
   _levelsInfo:
   - ObjectPrefab: {fileID: 2218277266446665891, guid: 845d3afd3c4429e4db60df5862c0d2ff, type: 3}
     RoundTime: 60

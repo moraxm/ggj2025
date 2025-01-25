@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class BubblesRaycaster : MonoBehaviour
 {
@@ -34,15 +33,18 @@ public class BubblesRaycaster : MonoBehaviour
 
 	private void OnBubblePush()
 	{
-		Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
-		if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
+		if (GameManager.Instance.IsPlaying)
 		{
-			Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
-			// We can also collide with the object itself
-			if (bubble != null)
+			Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
+			if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
 			{
-				bubble.Push();
-				_pushedBubble = bubble;
+				Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
+				// We can also collide with the object itself
+				if (bubble != null)
+				{
+					bubble.Push();
+					_pushedBubble = bubble;
+				}
 			}
 		}
 	}

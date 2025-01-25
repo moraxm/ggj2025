@@ -10,13 +10,13 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private MenuCameraManager _menuCameraManager = null;
 
-	private void Start()
+	private void OnEnable()
 	{
         InputManager.Instance.RegisterOnBackPerformed(OnExit);
         EventSystem.current.SetSelectedGameObject(_defaultObject);
 	}
 
-	private void OnDestroy()
+	private void OnDisable()
 	{
         InputManager inputManager = InputManager.Instance;
         if (inputManager != null)
