@@ -23,7 +23,9 @@ public class MusicController : MonoBehaviour
         {
 			_musicInstance = AudioManager.Instance.CreateInstance(_musicEvtRef);
             _musicInstance.start();
-        }
+			_parameterToApply = 1.0f;
+			AudioManager.Instance.SetParameter(_musicInstance, kParameterName, _parameterToApply);
+		}
     }
 
 	private void Update()
@@ -49,9 +51,6 @@ public class MusicController : MonoBehaviour
 	{
 		switch (level)
 		{
-			case 0u:
-				_parameterToApply = 1.0f;
-				break;
 			case 1u:
 				_parameterToApply = 3.0f;
 				break;
