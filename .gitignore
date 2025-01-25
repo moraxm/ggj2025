@@ -71,3 +71,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# FMOD
+/FMODStudioProject/GlobalGameJam2025/.cache/*
+/FMODStudioProject/GlobalGameJam2025/.unsaved/*
+/fmod_editor.log
+/[Aa]ssets/Plugins/FMOD/Cache/Editor

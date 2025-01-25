@@ -5,36 +5,86 @@ using UnityEngine.Splines;
 
 public class BurbujasCreator : MonoBehaviour
 {
-    public GameObject BurbujaPrefab;
-    public float DistanceBetweenBurbujas;
-    public List<SplineContainer> Splines;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [System.Serializable]
+    private struct BurbujasCreatorBubbleInfo
     {
-        
-        for (int i = 0; i < Splines.Count; ++i)
+        public GameObject BubblePrefab;
+        public uint Priority;
+    }
+
+    [SerializeField]
+	BurbujasCreatorBubbleInfo[] _creatorInfo = null;
+    [SerializeField]
+    private float _distanceBetweenBurbujas;
+    [SerializeField]
+    private List<SplineContainer> _splines = new List<SplineContainer>();
+
+    private uint _totalPriorities = 0u;
+
+	private void Awake()
+	{
+		for (int i = 0; i < _creatorInfo.Length; ++i)
+		{
+			_totalPriorities += _creatorInfo[i].Priority;
+		}
+	}
+
+	private void Start()
+    {
+		for (int i = 0; i < _splines.Count; ++i)
         {
-            GenerateBurbujas(Splines[i], i%2 == 0 ? 0 : DistanceBetweenBurbujas*0.5f);
+            GenerateBurbujas(_splines[i]);
         }
     }
 
-    void GenerateBurbujas(SplineContainer container, float Offset)
+    private void GenerateBurbujas(SplineContainer container)
     {
-        float a = container.Spline.GetLength() / DistanceBetweenBurbujas;
+        BurbujaOffset burbujaOffset;
+        float Offset = 0;
+        if (burbujaOffset = container.GetComponent<BurbujaOffset>())
+        {
+            Offset = burbujaOffset.Offset;
+        }
+
+        float a = container.Spline.GetLength() / _distanceBetweenBurbujas;
         for (int i = 0; i < a; i++)
         {
-            float b = DistanceBetweenBurbujas / container.Spline.GetLength();
+            float b = _distanceBetweenBurbujas / container.Spline.GetLength();
 
-            container.Spline.Evaluate((b * i) + Offset, out float3 pos, out float3 tangent, out float3 up);
+            container.Spline.Evaluate((b * i) + Offset, out float3 pos, out _, out float3 up);
 
-            Debug.DrawRay(transform.TransformPoint(pos), up, Color.red, 213809218932);
-            GameObject Burbuja = GameObject.Instantiate(BurbujaPrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
+            Debug.DrawRay(transform.TransformPoint(pos), up, Color.red, Mathf.Infinity);
+            GameObject bubblePrefab = ChooseBubbleToSpawn();
+            if (bubblePrefab != null)
+            {
+                Instantiate(bubblePrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private GameObject ChooseBubbleToSpawn()
     {
-        
+		GameObject bubblePrefab = null;
+		if (_creatorInfo.Length <= 0)
+        {
+            return bubblePrefab;
+        }
+
+        // Choose random number in range of [0, totalPriorities)
+        uint random = (uint)UnityEngine.Random.Range(0, _totalPriorities - 1);
+        // Loop through all creatorInfo summing the priorities.
+        // When accumulated priorities are higher than the random number, that's the prefab we will use
+        uint accumPriorities = 0u;
+        for (int i = 0; i < _creatorInfo.Length; ++i)
+        {
+            accumPriorities += _creatorInfo[i].Priority;
+            if (accumPriorities >= random)
+            {
+                bubblePrefab = _creatorInfo[i].BubblePrefab;
+                break;
+            }
+        }
+
+        return bubblePrefab;
     }
 }
