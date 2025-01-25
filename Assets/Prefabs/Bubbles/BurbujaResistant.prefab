@@ -78,4 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfca3119a6e0f8478fe501d45d95fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pushAnimationName: BubbleResistantPush
+  _popAnimationName: Pop
   _popsAmount: 3

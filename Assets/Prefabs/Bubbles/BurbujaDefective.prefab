@@ -82,3 +82,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e240ada4add6b4ba6c721f1b828ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pushAnimationName: PushSide
+  _popAnimationName: PopSide

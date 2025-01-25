@@ -16,7 +16,7 @@ public class BubbleResistant : Bubble
 
 	public override void Push()
 	{
-		_animator.CrossFade("BubbleResistantPush", 0.1f);
+		base.Push();
 		// TODO: Sonido Semipush
 	}
 
