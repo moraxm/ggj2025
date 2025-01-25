@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
 	private InputAction _bubblePopAction = null;
 	private InputAction _deltaInputAction = null;
 	private InputAction _zoomInputAction = null;
+	private InputAction _cursorTouch = null;
 
 	private Action _onRotateStarted = null;
 	private Action _onRotatePerformed = null;
@@ -109,7 +110,8 @@ public class InputManager : MonoBehaviour
 
 			_deltaInputAction = _playerInput.currentActionMap.FindAction("Delta");
 			_zoomInputAction = _playerInput.currentActionMap.FindAction("Zoom");
-		}
+            _cursorTouch = _playerInput.currentActionMap.FindAction("CursorTouch");
+        }
 	}
 
 	private void Terminate()
@@ -193,4 +195,15 @@ public class InputManager : MonoBehaviour
 
 		return 0.0f;
 	}
+
+    public Vector2 ReadCursorTouch()
+    {
+        if (_cursorTouch != null)
+        {
+            return _cursorTouch.ReadValue<Vector2>();
+        }
+
+        return Vector2.zero;
+    }
+
 }

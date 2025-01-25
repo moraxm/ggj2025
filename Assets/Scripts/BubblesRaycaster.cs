@@ -32,7 +32,7 @@ public class BubblesRaycaster : MonoBehaviour
 
 	private void OnBubblePush()
 	{
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
 		if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
 		{
 			Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
