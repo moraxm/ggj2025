@@ -1,19 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Rotate3DObject : MonoBehaviour
 {
-    #region Input Actions
-
-    protected InputAction _rotateInputAction { get; set; }
-
-    protected InputAction _deltaInputAction { get; set; }
-
-    protected InputAction _zoomInputAction { get; set; }
-
-    #endregion
-
     #region Variables
 
     private bool _rotateAllowed = false;
@@ -40,7 +29,6 @@ public class Rotate3DObject : MonoBehaviour
     private Vector2 _originalSignVelocity;
 
     private Camera _camera = null;
-    private PlayerInput _playerInput = null;
 
     #endregion
 
@@ -48,56 +36,47 @@ public class Rotate3DObject : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-        _playerInput = FindFirstObjectByType<PlayerInput>();
 
 		InitializeInputSystem();
 	}
 
-    private void InitializeInputSystem()
+	private void OnDestroy()
+	{
+        TerminateInputSystem();
+	}
+
+	private void InitializeInputSystem()
     {
-        _rotateInputAction = _playerInput.currentActionMap.FindAction("RotateClick");
-        if (_rotateInputAction != null)
-        {
-            _rotateInputAction.started += OnRightClickPressed;
-            _rotateInputAction.performed += OnRightClickPressed;
-            _rotateInputAction.canceled += OnRightClickPressed;
-        }
+        InputManager.Instance.RegisterOnRotateStarted(OnRightClickPressed);
+		InputManager.Instance.RegisterOnRotatePerformed(OnRightClickPressed);
+		InputManager.Instance.RegisterOnRotateCancelled(OnRightClickReleased);
+	}
 
-        _deltaInputAction = _playerInput.currentActionMap.FindAction("Delta");
+    private void TerminateInputSystem()
+    {
+		InputManager.Instance.UnregisterOnRotateStarted(OnRightClickPressed);
+		InputManager.Instance.UnregisterOnRotatePerformed(OnRightClickPressed);
+		InputManager.Instance.UnregisterOnRotateCancelled(OnRightClickReleased);
+	}
 
-        _zoomInputAction = _playerInput.currentActionMap.FindAction("Zoom");
+    protected virtual void OnRightClickPressed()
+    {
+        _rotateAllowed = true;
     }
 
-    protected virtual void OnRightClickPressed(InputAction.CallbackContext context)
+    protected virtual void OnRightClickReleased()
     {
-        if (context.started || context.performed)
-        {
-            _rotateAllowed = true;
-        }
-        else if (context.canceled)
-        {
-            _rotateAllowed = false;
-        }
-    }
+		_rotateAllowed = false;
+	}
 
     protected virtual Vector2 GetMouseLookInput()
     {
-        if (_deltaInputAction != null)
-        {
-            return _deltaInputAction.ReadValue<Vector2>();
-        }
-
-        return Vector2.zero;
+        return InputManager.Instance.ReadDeltaInput();
     }
 
     protected virtual float GetZoom()
     {
-        if (_zoomInputAction != null)
-        {
-            return _zoomInputAction.ReadValue<float>();
-        }
-
-        return 0;
+        return InputManager.Instance.ReadZoom();
     }
 
     private void Update()
