@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263937823821239468}
-  - component: {fileID: 116543046533317583}
+  - component: {fileID: 1787193008087014863}
   - component: {fileID: 6394602197117626781}
   m_Layer: 6
   m_Name: Burbuja
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 2016678203785986760}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &116543046533317583
+--- !u!114 &1787193008087014863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,10 +43,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3423451408336054248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad402d9d8449744fbd1a7c228788879, type: 3}
+  m_Script: {fileID: 11500000, guid: 3877294bfe71b544e86cd583789e310b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 6222759066655577658}
 --- !u!135 &6394602197117626781
 SphereCollider:
   m_ObjectHideFlags: 0

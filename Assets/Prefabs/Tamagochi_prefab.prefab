@@ -1953,9 +1953,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ef7b269bc1f3428fb6f2e064b4f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BurbujaPrefab: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
-  DistanceBetweenBurbujas: 0.01
-  Splines:
+  _creatorInfo:
+  - BubblePrefab: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
+    Priority: 20
+  - BubblePrefab: {fileID: 392308948242830997, guid: b2f741a4b1a5ba64fbb59eb7d84ac9b0, type: 3}
+    Priority: 20
+  - BubblePrefab: {fileID: 1867797041141176765, guid: 547cd98fddaf58847ab283a4c4e9a57a, type: 3}
+    Priority: 20
+  - BubblePrefab: {fileID: 1249144653749999741, guid: afd4d4021412ae9419068453ddf932a5, type: 3}
+    Priority: 20
+  - BubblePrefab: {fileID: 5879110796519625615, guid: 24f8e4ee2f934c246b9fbd05e7aa85a3, type: 3}
+    Priority: 20
+  _distanceBetweenBurbujas: 0.01
+  _splines:
   - {fileID: 2851974239018208181}
   - {fileID: 8817325641524300390}
   - {fileID: 2189227790115955301}
@@ -1978,10 +1988,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56df61e0fd06bc45b773370af6b6dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 0}
   _speed: 10
   _invertedX: 0
   _invertedY: 0
+  _zoomEnabled: 1
+  _maxDistance: {x: -5, y: -10}
+  _factorZoom: 2
 --- !u!1 &6337031194067384966
 GameObject:
   m_ObjectHideFlags: 0

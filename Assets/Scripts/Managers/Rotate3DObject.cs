@@ -1,12 +1,8 @@
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class Rotate3DObject : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerInput _playerInput = null;
-
     #region Input Actions
 
     protected InputAction _rotateInputAction { get; set; }
@@ -27,24 +23,21 @@ public class Rotate3DObject : MonoBehaviour
     [SerializeField] private bool _invertedY = false;
 
     [SerializeField] private bool _zoomEnabled = true;
-    [SerializeField] private Vector2 _maxDistance = new Vector2(-5, -10 );
-    [SerializeField] private Camera _camera;
+    [SerializeField] private Vector2 _maxDistance = new Vector2(-5f, -10f);
     [SerializeField] private float _factorZoom = 2;
 
-    #endregion
+    private Camera _camera = null;
+	private PlayerInput _playerInput = null;
 
-    private void Awake()
-    {
-        InitializeInputSystem();
-    }
+	#endregion
 
     private void Start()
     {
-        if(_camera == null)
-        {
-            _camera = Camera.main;
-        }
-    }
+        _camera = Camera.main;
+        _playerInput = FindFirstObjectByType<PlayerInput>();
+
+		InitializeInputSystem();
+	}
 
     private void InitializeInputSystem()
     {
@@ -68,14 +61,17 @@ public class Rotate3DObject : MonoBehaviour
             _rotateAllowed = true;
         }
         else if (context.canceled)
+        {
             _rotateAllowed = false;
-
+        }
     }
 
     protected virtual Vector2 GetMouseLookInput()
     {
         if (_deltaInputAction != null)
+        {
             return _deltaInputAction.ReadValue<Vector2>();
+        }
 
         return Vector2.zero;
     }
@@ -83,7 +79,9 @@ public class Rotate3DObject : MonoBehaviour
     protected virtual float GetZoom()
     {
         if (_zoomInputAction != null)
+        {
             return _zoomInputAction.ReadValue<float>();
+        }
 
         return 0;
     }
@@ -100,6 +98,7 @@ public class Rotate3DObject : MonoBehaviour
         {
             return;
         }
+
         float zoom = GetZoom();
 
         _camera.fieldOfView += -zoom * _factorZoom;
@@ -110,10 +109,11 @@ public class Rotate3DObject : MonoBehaviour
     private void ManageRotation()
     {
         if (!_rotateAllowed)
+        {
             return;
+        }
 
         Vector2 MouseDelta = GetMouseLookInput();
-
 
         MouseDelta *= _speed * Time.deltaTime;
 
