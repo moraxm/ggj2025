@@ -52,6 +52,8 @@ Material:
     - _BumpScale: 0
     - _DetailNormalMapScale: 0.48
     - _Parallax: 0.0383
-    m_Colors: []
+    - _Smoothness: 0.476
+    m_Colors:
+    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.78431374}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
