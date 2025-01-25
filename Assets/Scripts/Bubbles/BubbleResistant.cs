@@ -1,9 +1,14 @@
+using FMODUnity;
 using UnityEngine;
 
 public class BubbleResistant : Bubble
 {
 	[SerializeField]
 	private uint _popsAmount = 2u;
+	[SerializeField]
+	private EventReference _resistantPushEvent;
+	[SerializeField]
+	private EventReference _resistantPopEvent;
 
 	protected PlayOneShotAudio _playOneShotAudio = null;
 	private uint _timesPopped = 0u;
@@ -16,7 +21,7 @@ public class BubbleResistant : Bubble
 
 	public override void Push()
 	{
-		// TODO: Sonido Semipush
+		_playOneShotAudio.Play(_resistantPopEvent);
 		base.Push();
 	}
 
@@ -36,7 +41,7 @@ public class BubbleResistant : Bubble
 
 	private void ActualPop()
 	{
-		// TODO: Sonido Pop
+		_playOneShotAudio.Play(_resistantPopEvent);
 		base.Pop();
 	}
 }

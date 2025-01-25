@@ -85,3 +85,17 @@ MonoBehaviour:
   _pushAnimationName: BubbleResistantPush
   _popAnimationName: Pop
   _popsAmount: 3
+  _resistantPushEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _resistantPopEvent:
+    Guid:
+      Data1: 1179639254
+      Data2: 1312323568
+      Data3: 968533124
+      Data4: -1712234954
+    Path: event:/BubblePop

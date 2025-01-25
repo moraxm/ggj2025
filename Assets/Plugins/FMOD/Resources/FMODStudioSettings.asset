@@ -479,7 +479,6 @@ MonoBehaviour:
   - Master
   Banks:
   - Bubble
-  - Tamagotchi
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
