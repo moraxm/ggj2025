@@ -24,7 +24,9 @@ public class BubblesRaycaster : MonoBehaviour
 
 	private void Update()
 	{
-		if (_pushedBubble != null && InputManager.Instance.BubblePopReleased())
+		if (GameManager.Instance.IsPlaying &&
+			_pushedBubble != null &&
+			InputManager.Instance.BubblePopReleased())
 		{
 			OnBubblePop();
 		}
@@ -36,8 +38,12 @@ public class BubblesRaycaster : MonoBehaviour
 		if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
 		{
 			Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
-			bubble.Push();
-			_pushedBubble = bubble;
+			// We can also collide with the object itself
+			if (bubble != null)
+			{
+				bubble.Push();
+				_pushedBubble = bubble;
+			}
 		}
 	}
 

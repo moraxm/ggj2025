@@ -1,9 +1,14 @@
+using FMODUnity;
 using UnityEngine;
 
 public class BubbleLongPush : Bubble
 {
 	[SerializeField]
 	private float _timeToPush = 1.0f;
+	[SerializeField]
+	private EventReference _longPushEvent;
+	[SerializeField]
+	private EventReference _longPopEvent;
 
 	protected PlayOneShotAudio _playOneShotAudio = null;
 	private bool _pushed = false;
@@ -31,9 +36,9 @@ public class BubbleLongPush : Bubble
 
 	public override void Push()
 	{
+		_playOneShotAudio.Play(_longPushEvent);
 		base.Push();
 		_pushed = true;
-		// TODO: Sonido Long Push
 	}
 
 	public override void Pop()
@@ -44,12 +49,16 @@ public class BubbleLongPush : Bubble
 			_pushed = false;
 			_timePushed = 0.0f;
 		}
+		else
+		{
+			// TODO: Sonido volver de push a normal
+		}
 	}
 
 	private void ActualPop()
 	{
+		_playOneShotAudio.Play(_longPopEvent);
 		base.Pop();
 		_pushed = false;
-		// TODO: Sonido Long Push Pop
 	}
 }

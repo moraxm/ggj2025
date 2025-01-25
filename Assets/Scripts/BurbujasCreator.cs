@@ -8,18 +8,21 @@ public class BurbujasCreator : MonoBehaviour
     [System.Serializable]
     private struct BurbujasCreatorBubbleInfo
     {
-        public GameObject BubblePrefab;
+        public Bubble BubblePrefab;
         public uint Priority;
     }
 
     [SerializeField]
-	BurbujasCreatorBubbleInfo[] _creatorInfo = null;
+	private BurbujasCreatorBubbleInfo[] _creatorInfo = null;
     [SerializeField]
     private float _distanceBetweenBurbujas;
     [SerializeField]
     private List<SplineContainer> _splines = new List<SplineContainer>();
 
     private uint _totalPriorities = 0u;
+    private uint _totalBubbles = 0u;
+
+    public uint TotalBubbles => _totalBubbles;
 
 	private void Awake()
 	{
@@ -53,18 +56,21 @@ public class BurbujasCreator : MonoBehaviour
 
             container.Spline.Evaluate((b * i) + Offset, out float3 pos, out _, out float3 up);
 
-            Debug.DrawRay(transform.TransformPoint(pos), up, Color.red, Mathf.Infinity);
-            GameObject bubblePrefab = ChooseBubbleToSpawn();
+            Bubble bubblePrefab = ChooseBubbleToSpawn();
             if (bubblePrefab != null)
             {
-                Instantiate(bubblePrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
+                Bubble bubble = Instantiate(bubblePrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
+                if (bubble != null && bubble is not BubblePopped)
+                {
+                    ++_totalBubbles;
+				}
             }
         }
     }
 
-    private GameObject ChooseBubbleToSpawn()
+    private Bubble ChooseBubbleToSpawn()
     {
-		GameObject bubblePrefab = null;
+		Bubble bubblePrefab = null;
 		if (_creatorInfo.Length <= 0)
         {
             return bubblePrefab;

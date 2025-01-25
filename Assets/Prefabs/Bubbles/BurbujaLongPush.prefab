@@ -85,3 +85,17 @@ MonoBehaviour:
   _pushAnimationName: Push
   _popAnimationName: Pop
   _timeToPush: 1
+  _longPushEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _longPopEvent:
+    Guid:
+      Data1: 1179639254
+      Data2: 1312323568
+      Data3: 968533124
+      Data4: -1712234954
+    Path: event:/BubblePop

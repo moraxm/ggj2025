@@ -101,8 +101,11 @@ public class Rotate3DObject : MonoBehaviour
 
     private void Update()
     {
-        ManageZoom();
-        ManageRotation();
+        if (GameManager.Instance.IsPlaying)
+        {
+            ManageZoom();
+            ManageRotation();
+        }
     }
 
     private void ManageZoom()

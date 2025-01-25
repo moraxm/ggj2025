@@ -57,10 +57,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588f9bd63c8901249bbc272ac1103123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _evtRef:
+  _musicEvtRef:
     Guid:
       Data1: -121403107
       Data2: 1307123161
       Data3: 224606651
       Data4: -2034604033
     Path: event:/Music
+  _musicFinaleEvtRef:
+    Guid:
+      Data1: 702005656
+      Data2: 1115100545
+      Data3: 678674324
+      Data4: -658265641
+    Path: event:/MusicFinale
