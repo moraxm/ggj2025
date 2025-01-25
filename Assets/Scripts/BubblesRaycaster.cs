@@ -33,6 +33,9 @@ public class BubblesRaycaster : MonoBehaviour
 			Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
 			bubble.Push();
 			_pushedBubble = bubble;
+
+			// Disable collider so we cannot push the same bubble twice
+			hitInfo.collider.enabled = false;
 		}
 	}
 
