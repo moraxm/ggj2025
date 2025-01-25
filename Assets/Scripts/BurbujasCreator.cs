@@ -11,15 +11,21 @@ public class BurbujasCreator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
         for (int i = 0; i < Splines.Count; ++i)
         {
-            GenerateBurbujas(Splines[i], i%2 == 0 ? 0 : DistanceBetweenBurbujas*0.5f);
+            GenerateBurbujas(Splines[i]);
         }
     }
 
-    void GenerateBurbujas(SplineContainer container, float Offset)
+    void GenerateBurbujas(SplineContainer container)
     {
+        BurbujaOffset burbujaOffset = null;
+        float Offset = 0;
+        if (burbujaOffset = container.GetComponent<BurbujaOffset>())
+        {
+            Offset = burbujaOffset.Offset;
+        }
+
         float a = container.Spline.GetLength() / DistanceBetweenBurbujas;
         for (int i = 0; i < a; i++)
         {
@@ -30,11 +36,5 @@ public class BurbujasCreator : MonoBehaviour
             Debug.DrawRay(transform.TransformPoint(pos), up, Color.red, 213809218932);
             GameObject Burbuja = GameObject.Instantiate(BurbujaPrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
