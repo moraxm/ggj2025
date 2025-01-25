@@ -24,7 +24,9 @@ public class BubblesRaycaster : MonoBehaviour
 
 	private void Update()
 	{
-		if (_pushedBubble != null && InputManager.Instance.BubblePopReleased())
+		if (GameManager.Instance.IsPlaying &&
+			_pushedBubble != null &&
+			InputManager.Instance.BubblePopReleased())
 		{
 			OnBubblePop();
 		}
