@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "Zoom",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "1a6a7520-69d7-4a84-9f93-a7047981326a",
                     "expectedControlType": "Axis",
                     "processors": "",
@@ -102,6 +102,17 @@
                     "name": "",
                     "id": "a611116e-0ef1-40f8-a901-3b5f7785f185",
                     "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90ca87e3-079d-424f-8add-9505e118cd9c",
+                    "path": "<Touchscreen>/radius/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
