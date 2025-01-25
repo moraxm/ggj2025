@@ -11,14 +11,19 @@ public class InputManager : MonoBehaviour
 	private InputAction _deltaInputAction = null;
 	private InputAction _zoomInputAction = null;
 	private InputAction _cursorTouch = null;
+    private InputAction _pitch1Position = null;
+    private InputAction _pitch2Position = null;
 
-	private Action _onRotateStarted = null;
+    private Action _onRotateStarted = null;
 	private Action _onRotatePerformed = null;
 	private Action _onRotateCancelled = null;
 	private Action _onBubblePopPerformed = null;
 	private Action _onBackPerformed = null;
 
-	public static InputManager Instance => _instance;
+    private Action _onPitch2Started = null;
+    private Action _onPitch2Cancelled = null;
+
+    public static InputManager Instance => _instance;
 
 	public void RegisterOnRotateStarted(Action onRotateStarted)
 	{
@@ -41,7 +46,16 @@ public class InputManager : MonoBehaviour
 		_onBackPerformed += onBackPerformed;
 	}
 
-	public void UnregisterOnRotateStarted(Action onRotateStarted)
+    public void RegisterOnPitch2Started(Action callback)
+    {
+        _onPitch2Started += callback;
+    }
+    public void RegisterOnPitch2Cancelled(Action callback)
+    {
+        _onPitch2Cancelled += callback;
+    }
+
+    public void UnregisterOnRotateStarted(Action onRotateStarted)
 	{
 		_onRotateStarted -= onRotateStarted;
 	}
@@ -62,7 +76,17 @@ public class InputManager : MonoBehaviour
 		_onBackPerformed -= onBackPerformed;
 	}
 
-	private void Awake()
+    public void UnregisterOnPitch2Started(Action callback)
+    {
+        _onPitch2Started -= callback;
+    }
+
+    public void UnregisterOnPitch2Cancelled(Action callback)
+    {
+        _onPitch2Cancelled -= callback;
+    }
+
+    private void Awake()
 	{
 		if (_instance == null)
 		{
@@ -111,8 +135,17 @@ public class InputManager : MonoBehaviour
 			_deltaInputAction = _playerInput.currentActionMap.FindAction("Delta");
 			_zoomInputAction = _playerInput.currentActionMap.FindAction("Zoom");
             _cursorTouch = _playerInput.currentActionMap.FindAction("CursorTouch");
+            _pitch1Position = _playerInput.currentActionMap.FindAction("Pitch1Position");
+            _pitch2Position = _playerInput.currentActionMap.FindAction("Pitch2Position");
+
+            InputAction _pitch2Press = _playerInput.currentActionMap.FindAction("Pitch2Press");
+            if (_pitch2Press != null)
+            {
+                _pitch2Press.started += OnPitch2Started;
+                _pitch2Press.canceled += OnPitch2Cancelled;
+            }
         }
-	}
+    }
 
 	private void Terminate()
 	{
@@ -206,4 +239,33 @@ public class InputManager : MonoBehaviour
         return Vector2.zero;
     }
 
+    public Vector2 ReadPitch1()
+    {
+        if (_pitch1Position != null)
+        {
+            return _pitch1Position.ReadValue<Vector2>();
+        }
+
+        return Vector2.zero;
+    }
+
+    public Vector2 ReadPitch2()
+    {
+        if (_pitch2Position != null)
+        {
+            return _pitch2Position.ReadValue<Vector2>();
+        }
+
+        return Vector2.zero;
+    }
+
+    private void OnPitch2Started(InputAction.CallbackContext context)
+    {
+        _onPitch2Started?.Invoke();
+    }
+
+    private void OnPitch2Cancelled(InputAction.CallbackContext context)
+    {
+        _onPitch2Cancelled?.Invoke();
+    }
 }

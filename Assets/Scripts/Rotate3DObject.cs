@@ -15,6 +15,8 @@ public class Rotate3DObject : MonoBehaviour
     [SerializeField] private bool _zoomEnabled = true;
     [SerializeField] private Vector2 _maxDistance = new Vector2(-5f, -10f);
     [SerializeField] private float _factorZoom = 2;
+    private float _lastDistanceTouch = 0;
+    private bool _pitch2Press = false;
 
 
     [SerializeField] private bool _useAceleration = false;
@@ -31,8 +33,6 @@ public class Rotate3DObject : MonoBehaviour
     private Camera _camera = null;
 
     #endregion
-
-
     private void Start()
     {
         _camera = Camera.main;
@@ -50,7 +50,10 @@ public class Rotate3DObject : MonoBehaviour
         InputManager.Instance.RegisterOnRotateStarted(OnRightClickPressed);
 		InputManager.Instance.RegisterOnRotatePerformed(OnRightClickPressed);
 		InputManager.Instance.RegisterOnRotateCancelled(OnRightClickReleased);
-	}
+
+        InputManager.Instance.RegisterOnPitch2Started(OnPitch2Started);
+        InputManager.Instance.RegisterOnPitch2Cancelled(OnPitch2Cancelled);
+    }
 
     private void TerminateInputSystem()
     {
@@ -60,8 +63,21 @@ public class Rotate3DObject : MonoBehaviour
             InputManager.Instance.UnregisterOnRotateStarted(OnRightClickPressed);
             InputManager.Instance.UnregisterOnRotatePerformed(OnRightClickPressed);
             InputManager.Instance.UnregisterOnRotateCancelled(OnRightClickReleased);
+
+            InputManager.Instance.UnregisterOnPitch2Started(OnPitch2Started);
+            InputManager.Instance.UnregisterOnPitch2Cancelled(OnPitch2Cancelled);
         }
 	}
+
+    protected virtual void OnPitch2Started()
+    {
+        _pitch2Press = true;
+    }
+
+    protected virtual void OnPitch2Cancelled()
+    {
+        _pitch2Press = false;
+    }
 
     protected virtual void OnRightClickPressed()
     {
@@ -99,11 +115,44 @@ public class Rotate3DObject : MonoBehaviour
             return;
         }
 
+        ZoomMouse();
+        ZoomTouch();
+    }
+
+    private void ZoomMouse()
+    {
         float zoom = GetZoom();
 
-        _camera.fieldOfView += -zoom * _factorZoom;
+        ApplyZoom(zoom);
+    }
+
+    private void ApplyZoom(float value)
+    {
+        _camera.fieldOfView += -value * _factorZoom;
 
         _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _maxDistance.x, _maxDistance.y);
+    }
+
+    private void ZoomTouch()
+    {
+        if (!_pitch2Press) { return; }
+
+        Vector2 pitch1 = InputManager.Instance.ReadPitch1();
+        Vector2 pitch2 = InputManager.Instance.ReadPitch2();
+
+        float distance = Vector2.Distance(pitch1, pitch2);
+
+        if(distance > _lastDistanceTouch)
+        {
+            ApplyZoom(-1);
+        }
+
+        if (distance < _lastDistanceTouch)
+        {
+            ApplyZoom(1);
+        }
+
+        _lastDistanceTouch = distance;
     }
 
     private void ManageRotation()

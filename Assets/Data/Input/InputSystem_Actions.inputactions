@@ -58,6 +58,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Pitch1Position",
+                    "type": "Value",
+                    "id": "3443bf93-fe75-4622-b17c-90e9e8326606",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pitch2Position",
+                    "type": "Value",
+                    "id": "4747d639-95fa-4a27-a6e1-6402d0b513a3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Pitch2Press",
+                    "type": "Button",
+                    "id": "f83706ee-3ad1-461e-89a8-9c6db0783bb8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -140,17 +167,6 @@
                 },
                 {
                     "name": "",
-                    "id": "90ca87e3-079d-424f-8add-9505e118cd9c",
-                    "path": "<Touchscreen>/radius/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bb25e91a-31fe-49a6-a124-a251e52e2e72",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -179,6 +195,39 @@
                     "processors": "",
                     "groups": ";Touch",
                     "action": "CursorTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2802dfec-794b-49b9-9728-2d3ab50739ba",
+                    "path": "<Touchscreen>/touch0/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "Pitch1Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a56a1870-a82a-437f-bdf7-ed5cfe732086",
+                    "path": "<Touchscreen>/touch1/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "Pitch2Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "927f8c2f-d838-4002-8e88-3d4e88ce11f9",
+                    "path": "<Touchscreen>/touch1/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch2Press",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
