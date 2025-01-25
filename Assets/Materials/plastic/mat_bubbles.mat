@@ -26,6 +26,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _CLEARCOATMAP
+  - _DETAIL_MULX2
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
@@ -75,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9dbc0e4d90dbd2c42a5458ac339ccd4e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EMISSION_COLOR_MAP:
@@ -182,18 +183,18 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
     - _BlendOp: 0
-    - _BumpScale: 3
+    - _BumpScale: 2
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
     - _ClearCoat: 1
-    - _ClearCoatMask: 0.456
-    - _ClearCoatSmoothness: 0.558
+    - _ClearCoatMask: 0.809
+    - _ClearCoatSmoothness: 0.718
     - _ColorMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
-    - _DetailNormalMapScale: 1
+    - _DetailNormalMapScale: 1.58
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
@@ -216,8 +217,8 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OPACITY: 1
-    - _OcclusionStrength: 0.586
-    - _Parallax: 0.08
+    - _OcclusionStrength: 0.488
+    - _Parallax: 0.0584
     - _QueueControl: 0
     - _QueueOffset: 1
     - _REFLECTIONS_IOR: 1.52
@@ -227,7 +228,7 @@ Material:
     - _SPECULAR_IOR: 1.5
     - _SPECULAR_ROUGHNESS: 0
     - _Shininess: 0.078125
-    - _Smoothness: 0.759
+    - _Smoothness: 0.748
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -244,7 +245,7 @@ Material:
     - _snow_slider: 7.350427
     m_Colors:
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.6117647}
+    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.49411765}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.35686275}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}

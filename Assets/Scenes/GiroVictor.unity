@@ -362,21 +362,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56df61e0fd06bc45b773370af6b6dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 1645951145}
   _speed: 10
   _invertedX: 0
   _invertedY: 0
   _zoomEnabled: 1
   _maxDistance: {x: 20, y: 80}
-  _camera: {fileID: 0}
   _factorZoom: 5
-  _useAceleration: 1
+  _useAceleration: 0
   _weight: 20
-  _velocity: {x: 0, y: 0}
-  _acceleration: {x: 0, y: 0}
-  _velocityMAg: 0
   _accelerationBrakeMagnitude: 10
-  fakeAceleration: {x: 0, y: 5}
+  _maxAceleration: 30
+  _maxVelocity: 30
 --- !u!114 &1645951145
 MonoBehaviour:
   m_ObjectHideFlags: 0
