@@ -57,6 +57,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6231828074345413937, guid: a116505029225664c86c0475ebb22126, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231828074345413937, guid: a116505029225664c86c0475ebb22126, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231828074345413937, guid: a116505029225664c86c0475ebb22126, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fe61893fea911dc499a6627f84cc41e3, type: 2}
@@ -68,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
       insertIndex: 1
       addedObject: {fileID: 6375724768746054534}
+    - targetCorrespondingSourceObject: {fileID: 1204570550616168562, guid: a116505029225664c86c0475ebb22126, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3078010806752860977}
   m_SourcePrefab: {fileID: 100100000, guid: a116505029225664c86c0475ebb22126, type: 3}
 --- !u!1 &392308948242830997 stripped
 GameObject:
@@ -87,3 +98,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushAnimationName: PushSide
+--- !u!1 &4198540721730971919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1204570550616168562, guid: a116505029225664c86c0475ebb22126, type: 3}
+  m_PrefabInstance: {fileID: 3094896542454575485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3078010806752860977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4198540721730971919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a8a6358163c964ebd234ee1f55b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflectionProbe: {fileID: 9041638829439380431, guid: 84cfc503aa79dab409b837f245b83c7c, type: 3}

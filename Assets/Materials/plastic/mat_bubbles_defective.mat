@@ -25,8 +25,10 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _CLEARCOATMAP
   - _DETAIL_MULX2
+  - _EMISSION
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
@@ -34,10 +36,10 @@ Material:
   - _SPECULAR_SETUP
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: 3004
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -174,7 +176,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _AlphaClip: 0
+    - _AlphaClip: 1
     - _AlphaToMask: 0
     - _BASE_COLOR_WEIGHT: 1
     - _BUILTIN_QueueControl: -1
@@ -189,12 +191,12 @@ Material:
     - _CameraNearFadeDistance: 1
     - _ClearCoat: 1
     - _ClearCoatMask: 0.809
-    - _ClearCoatSmoothness: 0.718
+    - _ClearCoatSmoothness: 0.182
     - _ColorMode: 0
     - _Cull: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 0.443
     - _DetailAlbedoMapScale: 1
-    - _DetailNormalMapScale: 1.58
+    - _DetailNormalMapScale: 0
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
@@ -217,10 +219,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OPACITY: 1
-    - _OcclusionStrength: 0.488
-    - _Parallax: 0.0584
+    - _OcclusionStrength: 0.484
+    - _Parallax: 0.0611
     - _QueueControl: 0
-    - _QueueOffset: 1
+    - _QueueOffset: 4
     - _REFLECTIONS_IOR: 1.52
     - _REFLECTIONS_ROUGHNESS: 1
     - _REFLECTIONS_WEIGHT: 1
@@ -228,7 +230,7 @@ Material:
     - _SPECULAR_IOR: 1.5
     - _SPECULAR_ROUGHNESS: 0
     - _Shininess: 0.078125
-    - _Smoothness: 0.529
+    - _Smoothness: 0.973
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -245,7 +247,7 @@ Material:
     - _snow_slider: 7.350427
     m_Colors:
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.67058825}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.81960785}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.35686275}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}

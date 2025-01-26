@@ -1635,23 +1635,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[0].Priority
-      value: 20
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[1].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[2].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[3].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[4].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[0].BubblePrefab
@@ -1798,6 +1798,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 75da0c254269b444ab81f7143d9306fb, type: 2}
@@ -1819,6 +1823,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}
       insertIndex: -1
       addedObject: {fileID: 647394923552283410}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2122929167743037640}
   m_SourcePrefab: {fileID: 100100000, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}
 --- !u!1 &5898249560281065939 stripped
 GameObject:
@@ -1847,6 +1854,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4226289259876583756, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}
+--- !u!114 &2122929167743037640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898249560281065939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a8a6358163c964ebd234ee1f55b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflectionProbe: {fileID: 9041638829439380431, guid: 84cfc503aa79dab409b837f245b83c7c, type: 3}
 --- !u!4 &6526026012929061737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7912ecbe629e0664cab670c8e27bc751, type: 3}

@@ -68,6 +68,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
       insertIndex: 1
       addedObject: {fileID: 6582682157032646694}
+    - targetCorrespondingSourceObject: {fileID: 1204570550616168562, guid: a116505029225664c86c0475ebb22126, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1046335881187981490}
   m_SourcePrefab: {fileID: 100100000, guid: a116505029225664c86c0475ebb22126, type: 3}
 --- !u!1 &5879110796519625615 stripped
 GameObject:
@@ -95,3 +98,21 @@ MonoBehaviour:
       Data3: 535323542
       Data4: -1838101887
     Path: event:/BubblePopNormal
+--- !u!1 &7972277873124224021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1204570550616168562, guid: a116505029225664c86c0475ebb22126, type: 3}
+  m_PrefabInstance: {fileID: 9084964363006719079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1046335881187981490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972277873124224021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a8a6358163c964ebd234ee1f55b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflectionProbe: {fileID: 9041638829439380431, guid: 84cfc503aa79dab409b837f245b83c7c, type: 3}

@@ -23,21 +23,25 @@ Material:
   m_Name: mat_bubbles
   m_Shader: {fileID: 4800000, guid: ee7e4c9a5f6364b688a332c67fc32cca, type: 3}
   m_Parent: {fileID: 2100000, guid: e654661b622733944a1604d80ff400ce, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 18
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _CLEARCOATMAP
   - _DETAIL_MULX2
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
   - _PARALLAXMAP
+  - _SPECGLOSSMAP
+  - _SPECULARHIGHLIGHTS_OFF
   - _SPECULAR_SETUP
   - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3007
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -49,11 +53,21 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BumpScale: 0
-    - _DetailNormalMapScale: 0.48
-    - _Parallax: 0.0383
+    - _AlphaClip: 1
+    - _BumpScale: 1
+    - _ClearCoat: 1
+    - _ClearCoatMask: 0.838
+    - _ClearCoatSmoothness: 0.769
+    - _Cutoff: 0.15
+    - _DetailNormalMapScale: 0.21
+    - _EnvironmentReflections: 1
+    - _OcclusionStrength: 0.182
+    - _Parallax: 0.0545
+    - _QueueOffset: 7
     - _Smoothness: 1
+    - _SpecularHighlights: 0
     m_Colors:
-    - _BaseColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.64705884}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.5686275}
+    - _EmissionColor: {r: 0.1649385, g: 0.16400488, b: 0.16400488, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
