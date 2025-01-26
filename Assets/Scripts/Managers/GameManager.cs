@@ -94,6 +94,11 @@ public class GameManager : MonoBehaviour
 
 	private void Init()
 	{
+		CreateObjects();
+    }
+
+	private void CreateObjects()
+	{
 		_roundsObjects = new BurbujasCreator[_levelsInfo.Length];
 		for (int i = 0; i < _levelsInfo.Length; ++i)
 		{
@@ -239,7 +244,8 @@ public class GameManager : MonoBehaviour
 	public void GoBackToMainMenu()
 	{
 		_restartCinemachine.Play();
-
+		FindFirstObjectByType<MainMenuManager>().enabled = true;
+		CreateObjects();
     }
 
 	public List<Bubble> GetCurrentObjectBubbles()
