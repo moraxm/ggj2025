@@ -47,6 +47,20 @@ MonoBehaviour:
   DefaultMainMenuObject: {fileID: 1169514141055051989}
   DefaultHowToPlayObject: {fileID: 0}
   DefaultCreditsObject: {fileID: 0}
+  _clickEvt:
+    Guid:
+      Data1: -960081931
+      Data2: 1195479913
+      Data3: 729731995
+      Data4: 933633220
+    Path: event:/Click
+  _backEvt:
+    Guid:
+      Data1: -1045907835
+      Data2: 1200747885
+      Data3: -1667007343
+      Data4: -1587587017
+    Path: event:/Back
   IsInMainMenuMainScreen: 0
   _menuCameraManager: {fileID: 0}
   _canvas: {fileID: 3932618406828569803}
