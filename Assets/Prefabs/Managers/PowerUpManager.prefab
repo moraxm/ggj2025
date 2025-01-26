@@ -46,14 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _powerups:
   - _name: Chopstick
-    _timeUse: 3
+    _timeUse: 4
     _timeRecharge: 10
   - _name: DragSystem
     _timeUse: 5
     _timeRecharge: 20
   - _name: SphereCast
-    _timeUse: 2
-    _timeRecharge: 15
+    _timeUse: 3
+    _timeRecharge: 10
   - _name: LastOne
-    _timeUse: 1
+    _timeUse: 3
     _timeRecharge: 30
