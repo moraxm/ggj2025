@@ -1635,23 +1635,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[0].Priority
-      value: 20
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[1].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[2].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[3].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[4].Priority
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _creatorInfo.Array.data[0].BubblePrefab
