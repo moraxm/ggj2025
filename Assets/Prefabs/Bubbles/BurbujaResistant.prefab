@@ -90,8 +90,8 @@ MonoBehaviour:
   _popsAmount: 2
   _resistantPopEvent:
     Guid:
-      Data1: 1179639254
-      Data2: 1312323568
-      Data3: 968533124
-      Data4: -1712234954
-    Path: event:/BubblePop
+      Data1: -921706616
+      Data2: 1164747316
+      Data3: 535323542
+      Data4: -1838101887
+    Path: event:/BubblePopNormal
