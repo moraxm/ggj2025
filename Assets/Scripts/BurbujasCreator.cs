@@ -12,10 +12,11 @@ public class BurbujasCreator : MonoBehaviour
         public uint Priority;
     }
 
-    [SerializeField]
+	public Renderer BubblesSubObject = null;
+	[SerializeField]
 	private BurbujasCreatorBubbleInfo[] _creatorInfo = null;
-    [SerializeField]
-    private float _distanceBetweenBurbujas;
+	[SerializeField]
+    private float _distanceBetweenBurbujas = 0.01f;
     [SerializeField]
     private List<SplineContainer> _splines = new List<SplineContainer>();
     // Set by Editor script code

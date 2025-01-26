@@ -70427,6 +70427,11 @@ PrefabInstance:
       addedObject: {fileID: 5016799812001264672}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a9b22c5228f7ae46800555355651f2b, type: 3}
+--- !u!23 &5487687285933691098 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8a9b22c5228f7ae46800555355651f2b, type: 3}
+  m_PrefabInstance: {fileID: 6623030486663154782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6657167278420700085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a9b22c5228f7ae46800555355651f2b, type: 3}
@@ -70444,6 +70449,10 @@ PrefabInstance:
       propertyPath: _totalBubbles
       value: 307
       objectReference: {fileID: 0}
+    - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
+      propertyPath: BubblesSubObject
+      value: 
+      objectReference: {fileID: 5487687285933691098}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _splines.Array.size
       value: 13

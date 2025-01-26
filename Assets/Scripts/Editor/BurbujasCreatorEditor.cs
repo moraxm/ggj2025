@@ -21,5 +21,6 @@ public class BurbujasCreatorEditor : Editor
 			((BurbujasCreator)target).DestroyAllBurbujas();
 			EditorUtility.SetDirty(target);
 		}
+		serializedObject.ApplyModifiedProperties();
 	}
 }

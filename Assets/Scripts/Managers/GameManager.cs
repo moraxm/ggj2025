@@ -1,6 +1,7 @@
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
 	private TextMeshProUGUI _timeRemainingText = null;
 	[SerializeField]
 	private EventReference _wrapEvtRef;
+	[SerializeField]
+	private AutoKill _smoke = null;
 	[SerializeField]
 	private TextMeshProUGUI _bubblesRemainingText = null;
 	[SerializeField]
@@ -172,18 +175,35 @@ public class GameManager : MonoBehaviour
 		{
 			yield return new WaitForSeconds(1.0f);
 
+			BurbujasCreator bubblesCreator = _roundsObjects[_currentLevel];
+			if (_smoke != null)
+			{
+				AutoKill smoke = Instantiate(_smoke, bubblesCreator.transform.position, Quaternion.identity);
+				yield return new WaitForSeconds(smoke.KillTime);
+			}
+			// Kill all remaining bubbles (ñapa que flipas)
+			Bubble[] bubbles = FindObjectsByType<Bubble>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			for (int i = 0; i < bubbles.Length; ++i)
+			{
+				if (bubbles[i].transform.parent == bubblesCreator.transform)
+				{
+					Destroy(bubbles[i].gameObject);
+				}
+			}
+			bubblesCreator.BubblesSubObject.enabled = false;
+			yield return new WaitForSeconds(2.0f);
+
 			_musicController.SetParameterForLevel(_currentLevel + 1);
 
-			Transform objectTransform = _roundsObjects[_currentLevel].transform;
 			float timeElapsed = 0.0f;
 			while (timeElapsed < _timeToMoveObjectBackToInitPos)
 			{
 				timeElapsed = Mathf.Min(timeElapsed + Time.deltaTime, _timeToMoveObjectBackToInitPos);
-				objectTransform.position = Vector3.Lerp(_objectsPlayTransform.position, _objectsInitialTransform.position, timeElapsed / _timeToMoveObjectBackToInitPos);
+				bubblesCreator.transform.position = Vector3.Lerp(_objectsPlayTransform.position, _objectsInitialTransform.position, timeElapsed / _timeToMoveObjectBackToInitPos);
 				yield return null;
 			}
 			// Destroy the object
-			Destroy(objectTransform.gameObject);
+			Destroy(bubblesCreator.gameObject);
 			// Check next round
 			if (_currentLevel < _levelsInfo.Length - 1)
 			{
@@ -219,4 +239,22 @@ public class GameManager : MonoBehaviour
 			menuCameraManager.GoToMainMenu();
 		}
 	}
+
+	public List<Bubble> GetCurrentObjectBubbles()
+	{
+		List<Bubble> toReturn = new List<Bubble>();
+        Transform objectTransform = _roundsObjects[_currentLevel].transform;
+
+		for(int i = 0; i < objectTransform.childCount; ++i )
+		{
+			Transform child = objectTransform.GetChild(i);
+
+			if(child.GetComponent<Bubble>() != null)
+			{
+				toReturn.Add(child.GetComponent<Bubble>());
+			}
+		}
+		return toReturn;
+    }
+
 }
