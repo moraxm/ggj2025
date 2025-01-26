@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4263937823821239468}
   - component: {fileID: 1787193008087014863}
   - component: {fileID: 6394602197117626781}
-  - component: {fileID: 2811844925076756100}
   - component: {fileID: 2173810617572791573}
   m_Layer: 6
   m_Name: BurbujaNormal
@@ -77,22 +76,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0049
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2811844925076756100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3423451408336054248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f009808cc1cd8a41a370063d9f7c966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _loadType: 0
-  _banks:
-  - Bubble
-  _preloadSamples: 1
 --- !u!114 &2173810617572791573
 MonoBehaviour:
   m_ObjectHideFlags: 0

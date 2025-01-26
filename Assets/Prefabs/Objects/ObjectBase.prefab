@@ -49,6 +49,7 @@ MonoBehaviour:
   _creatorInfo: []
   _distanceBetweenBurbujas: 0.01
   _splines: []
+  _totalBubbles: 0
 --- !u!114 &3961902418576458862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,5 +84,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadType: 0
-  _banks: []
+  _banks:
+  - Bubble
   _preloadSamples: 1
