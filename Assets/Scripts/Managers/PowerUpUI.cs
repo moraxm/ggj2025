@@ -40,7 +40,10 @@ public class PowerUpUI : MonoBehaviour
         }
         else
         {
-            _loadingBar.fillAmount = 0;
+            if(!p.InUse)
+            {
+                _loadingBar.fillAmount = 0;
+            }
         }
     }
 }

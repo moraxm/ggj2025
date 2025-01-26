@@ -71,6 +71,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
+  _timeToRotate: 0.2
 --- !u!114 &564184233585509126
 MonoBehaviour:
   m_ObjectHideFlags: 0
