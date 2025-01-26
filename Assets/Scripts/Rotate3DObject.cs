@@ -21,6 +21,9 @@ public class Rotate3DObject : MonoBehaviour
 
     [SerializeField] private LayerMask _layerMask;
 
+    [SerializeField] private float _timeToRotate = 0.2f;
+    private float _timeAcumRotation = 0;
+
     #endregion
     private void Start()
     {
@@ -95,6 +98,7 @@ public class Rotate3DObject : MonoBehaviour
     protected virtual void OnRightClickReleased()
     {
 		_rotateAllowed = false;
+        _timeAcumRotation = 0;
 	}
 
     protected virtual Vector2 GetMouseLookInput()
@@ -186,7 +190,13 @@ public class Rotate3DObject : MonoBehaviour
             return;
         }
 
-        RotationLineal();
+        _timeAcumRotation += Time.deltaTime;
+        Debug.Log(_timeAcumRotation);
+
+        if(_timeAcumRotation > _timeToRotate)
+        {
+            RotationLineal();
+        }
     }
 
     private void RotationLineal()
