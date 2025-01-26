@@ -65,7 +65,7 @@ public class BubblesRaycaster : MonoBehaviour
 		if (GameManager.Instance.IsPlaying)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
-			if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
 			{
 				Bubble bubble = hitInfo.collider.GetComponent<Bubble>();
 				// We can also collide with the object itself
@@ -74,11 +74,40 @@ public class BubblesRaycaster : MonoBehaviour
 					bubble.Push();
 					_pushedBubble = bubble;
 				}
-			}
-		}
+
+                if (PowerUpManager.Instance.IsPowerUpInUse("SphereCast"))
+                {
+                    ManageSphereCast(ray, hitInfo);
+                }
+            }
+        }
 	}
 
-	private void OnBubbleRelease()
+	private void ManageSphereCast(Ray ray, RaycastHit hitInfo)
+	{
+		Vector3 originRay = ray.origin;
+		Vector3 destinyPos = hitInfo.point;
+
+		Vector3 half = (destinyPos + originRay) / 2;
+		float dist = Vector3.Distance(half, originRay);
+
+        Collider[] hitColliders = Physics.OverlapSphere(half, dist * 1.2f, _layerMask, QueryTriggerInteraction.Collide);
+
+        for (int i = 0; i < hitColliders.Length; ++i)
+		{
+            Bubble bubble = hitColliders[i].GetComponent<Bubble>();
+            // We can also collide with the object itself
+            if (bubble != null)
+            {
+                bubble.Push();
+                _pushedBubble = bubble;
+            }
+        }
+    }
+
+
+
+    private void OnBubbleRelease()
 	{
 		_pushedBubble.Release();
 		_pushedBubble = null;
