@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private EventReference _wrapEvtRef;
 	[SerializeField]
+	private AutoKill _smoke = null;
+	[SerializeField]
 	private TextMeshProUGUI _bubblesRemainingText = null;
 	[SerializeField]
 	private float _timeToMoveObjectToPlayPos = 1.0f;
@@ -112,6 +114,12 @@ public class GameManager : MonoBehaviour
 		if (_playing)
 		{
 			RoundTime += Time.deltaTime;
+#if DEBUG
+			if (Input.GetKeyDown(KeyCode.Comma))
+			{
+				RoundCompleted();
+			}
+#endif
 		}
 	}
 
@@ -167,18 +175,32 @@ public class GameManager : MonoBehaviour
 		{
 			yield return new WaitForSeconds(1.0f);
 
+			BurbujasCreator bubblesCreator = _roundsObjects[_currentLevel];
+			if (_smoke != null)
+			{
+				AutoKill smoke = Instantiate(_smoke, bubblesCreator.transform.position, Quaternion.identity);
+				yield return new WaitForSeconds(smoke.KillTime);
+			}
+			// Kill all remaining bubbles (ñapa que flipas)
+			Bubble[] bubbles = FindObjectsByType<Bubble>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+			for (int i = 0; i < bubbles.Length; ++i)
+			{
+				Destroy(bubbles[i].gameObject);
+			}
+			bubblesCreator.BubblesSubObject.enabled = false;
+			yield return new WaitForSeconds(2.0f);
+
 			_musicController.SetParameterForLevel(_currentLevel + 1);
 
-			Transform objectTransform = _roundsObjects[_currentLevel].transform;
 			float timeElapsed = 0.0f;
 			while (timeElapsed < _timeToMoveObjectBackToInitPos)
 			{
 				timeElapsed = Mathf.Min(timeElapsed + Time.deltaTime, _timeToMoveObjectBackToInitPos);
-				objectTransform.position = Vector3.Lerp(_objectsPlayTransform.position, _objectsInitialTransform.position, timeElapsed / _timeToMoveObjectBackToInitPos);
+				bubblesCreator.transform.position = Vector3.Lerp(_objectsPlayTransform.position, _objectsInitialTransform.position, timeElapsed / _timeToMoveObjectBackToInitPos);
 				yield return null;
 			}
 			// Destroy the object
-			Destroy(objectTransform.gameObject);
+			Destroy(bubblesCreator.gameObject);
 			// Check next round
 			if (_currentLevel < _levelsInfo.Length - 1)
 			{
@@ -198,8 +220,7 @@ public class GameManager : MonoBehaviour
 		IEnumerator VictoryCoroutine()
 		{
 			yield return new WaitForSeconds(3.0f);
-			// TODO: Finale here
-			GoBackToMainMenu();
+			_musicController.SetReadyForFinale();
 		}
 
 		Debug.Log("VICTORY!");
@@ -207,8 +228,7 @@ public class GameManager : MonoBehaviour
 		StartCoroutine(VictoryCoroutine());
 	}
 
-
-	private void GoBackToMainMenu()
+	public void GoBackToMainMenu()
 	{
 		MenuCameraManager menuCameraManager = FindFirstObjectByType<MenuCameraManager>();
 		if (menuCameraManager != null)

@@ -1258,6 +1258,7 @@ MonoBehaviour:
       Data3: -175011692
       Data4: 268690012
     Path: event:/Wrap
+  _smoke: {fileID: 3471777907124881486, guid: 6f672a31584a6a748912a49c1dce2f0c, type: 3}
   _bubblesRemainingText: {fileID: 9002528227136712604}
   _timeToMoveObjectToPlayPos: 1
   _timeToMoveObjectBackToInitPos: 1
