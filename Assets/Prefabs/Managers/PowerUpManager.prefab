@@ -51,3 +51,6 @@ MonoBehaviour:
   - _name: DragSystem
     _timeUse: 5
     _timeRecharge: 20
+  - _name: SphereCast
+    _timeUse: 2
+    _timeRecharge: 15
