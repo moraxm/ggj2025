@@ -111,6 +111,12 @@ public class GameManager : MonoBehaviour
 		if (_playing)
 		{
 			RoundTime += Time.deltaTime;
+#if DEBUG
+			if (Input.GetKeyDown(KeyCode.Comma))
+			{
+				RoundCompleted();
+			}
+#endif
 		}
 	}
 
@@ -197,8 +203,7 @@ public class GameManager : MonoBehaviour
 		IEnumerator VictoryCoroutine()
 		{
 			yield return new WaitForSeconds(3.0f);
-			// TODO: Finale here
-			GoBackToMainMenu();
+			_musicController.SetReadyForFinale();
 		}
 
 		Debug.Log("VICTORY!");
@@ -206,8 +211,7 @@ public class GameManager : MonoBehaviour
 		StartCoroutine(VictoryCoroutine());
 	}
 
-
-	private void GoBackToMainMenu()
+	public void GoBackToMainMenu()
 	{
 		MenuCameraManager menuCameraManager = FindFirstObjectByType<MenuCameraManager>();
 		if (menuCameraManager != null)

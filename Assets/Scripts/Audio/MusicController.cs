@@ -42,6 +42,7 @@ public class MusicController : MonoBehaviour
             {
 				AudioManager.Instance.StopAudioEvent(_musicInstance, FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 				_onFinaleStart?.Invoke();
+				_readyForFinale = false;
 			}
         }
 		_lastPlaybackPosition = pos;
