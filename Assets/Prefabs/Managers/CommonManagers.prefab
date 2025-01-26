@@ -411,6 +411,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Playables.PlayableDirector, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146393768150732604, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7457769299338784988, guid: a0b9201b2ecb7024aa3f547472663b74, type: 3}
       propertyPath: m_Name
       value: AudioManager

@@ -1108,6 +1108,10 @@ PrefabInstance:
       value: CommonManagers
       objectReference: {fileID: 0}
     - target: {fileID: 5202827116044684531, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _restartCinemachine
+      value: 
+      objectReference: {fileID: 521704324}
+    - target: {fileID: 5202827116044684531, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
       propertyPath: _objectsPlayTransform
       value: 
       objectReference: {fileID: 223251094}
