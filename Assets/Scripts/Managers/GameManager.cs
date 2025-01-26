@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,8 +41,10 @@ public class GameManager : MonoBehaviour
 	private float _timeToMoveObjectBackToInitPos = 1.0f;
 	[SerializeField]
 	private LevelInfo[] _levelsInfo = null;
+    [SerializeField]
+    private PlayableDirector _restartCinemachine = null;
 
-	private BurbujasCreator[] _roundsObjects = null;
+    private BurbujasCreator[] _roundsObjects = null;
 	private uint _currentLevel = 0u;
 	private float _roundTime = 0.0f;
 	private bool _playing = false;
@@ -233,12 +236,9 @@ public class GameManager : MonoBehaviour
 
 	public void GoBackToMainMenu()
 	{
-		MenuCameraManager menuCameraManager = FindFirstObjectByType<MenuCameraManager>();
-		if (menuCameraManager != null)
-		{
-			menuCameraManager.GoToMainMenu();
-		}
-	}
+		_restartCinemachine.Play();
+
+    }
 
 	public List<Bubble> GetCurrentObjectBubbles()
 	{

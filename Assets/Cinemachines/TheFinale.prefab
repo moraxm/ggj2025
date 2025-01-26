@@ -426,10 +426,10 @@ MonoBehaviour:
         z: 0
       Rotation:
         value:
-          x: -0.028851248
-          y: 2.342485e-10
+          x: -0.02885125
+          y: 4.68497e-10
           z: 0.10600297
-          w: 0.99394715
+          w: 0.9939472
     m_MetaData:
     - Mode: 2
       Tension: 0.5
@@ -833,8 +833,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766974911546789413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32667285, y: 0.4723075, z: -0.19399063, w: 0.7953478}
-  m_LocalPosition: {x: -0.7045443, y: 0.3326348, z: -8.3731575}
+  m_LocalRotation: {x: -0.0000047523645, y: 0.9999932, z: -0.003418961, w: -0.001389993}
+  m_LocalPosition: {x: -0.6471618, y: 0.12119663, z: 9.003483}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1064,6 +1064,7 @@ GameObject:
   - component: {fileID: 8820525450632193595}
   - component: {fileID: 103198510300606233}
   - component: {fileID: 3417284153159586492}
+  - component: {fileID: 2940262321196607053}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1129,7 +1130,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1191,6 +1192,28 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &2940262321196607053
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947958861245114491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8014303516583041482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6028558753635880334}
   - component: {fileID: 8019197811827968589}
+  - component: {fileID: 1069708410251788199}
   m_Layer: 0
   m_Name: TheFinale
   m_TagString: Untagged
@@ -1266,11 +1290,25 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 4652536114110513249, guid: 8d83b92666cc7d24f91ce253257aeafc, type: 2}
     value: {fileID: 462590832734148668}
+  - key: {fileID: 3491205953577929231, guid: 8d83b92666cc7d24f91ce253257aeafc, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - d09452d038b78a647ba8b3d813101958: {fileID: 2766086466005558579}
     - 960f5a3ca75c29a458d49f3a47496bbb: {fileID: 1123700781623312140}
     - 16ac3a5cd18af1b41ae85b1afc20941e: {fileID: 0}
+--- !u!114 &1069708410251788199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014303516583041482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18286267eef8a4f409eebd886f80a5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8218099289351999343
 GameObject:
   m_ObjectHideFlags: 0
