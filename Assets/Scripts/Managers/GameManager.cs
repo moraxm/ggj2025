@@ -184,6 +184,7 @@ public class GameManager : MonoBehaviour
 			yield return new WaitForSeconds(1.0f);
 
 			BurbujasCreator bubblesCreator = _roundsObjects[_currentLevel];
+			bubblesCreator.transform.eulerAngles = Vector3.zero;
 			if (_smoke != null)
 			{
 				AutoKill smoke = Instantiate(_smoke, bubblesCreator.transform.position, Quaternion.identity);
