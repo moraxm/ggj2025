@@ -185,7 +185,10 @@ public class GameManager : MonoBehaviour
 			Bubble[] bubbles = FindObjectsByType<Bubble>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 			for (int i = 0; i < bubbles.Length; ++i)
 			{
-				Destroy(bubbles[i].gameObject);
+				if (bubbles[i].transform.parent == bubblesCreator.transform)
+				{
+					Destroy(bubbles[i].gameObject);
+				}
 			}
 			bubblesCreator.BubblesSubObject.enabled = false;
 			yield return new WaitForSeconds(2.0f);
