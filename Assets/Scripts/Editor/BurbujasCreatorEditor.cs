@@ -7,6 +7,9 @@ public class BurbujasCreatorEditor : Editor
 	public override void OnInspectorGUI()
 	{
 		DrawPropertiesExcluding(serializedObject, "_totalBubbles");
+		EditorGUI.BeginDisabledGroup(true);
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("_totalBubbles"));
+		EditorGUI.EndDisabledGroup();
 
 		if (GUILayout.Button("Generate Bubbles"))
 		{

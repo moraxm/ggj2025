@@ -810,8 +810,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766974911546789413}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0000025799063, y: 0.9999973, z: -0.001881584, w: -0.0013711316}
-  m_LocalPosition: {x: -0.64716125, y: 0.07435942, z: 9.00525}
+  m_LocalRotation: {x: 0.20101249, y: -0.0018327908, z: 0.00037609105, w: 0.9795869}
+  m_LocalPosition: {x: -0.70454425, y: 0.3330834, z: -8.373152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1220,7 +1220,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 8d83b92666cc7d24f91ce253257aeafc, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
