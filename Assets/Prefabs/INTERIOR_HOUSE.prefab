@@ -1759,7 +1759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1675753554168679919, guid: 9b392c294f3506c4db1d2e90e014cc76, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2169410242466266132, guid: 9b392c294f3506c4db1d2e90e014cc76, type: 3}
       propertyPath: m_StaticShadowCaster
@@ -1847,7 +1847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5104769819304032238, guid: 9b392c294f3506c4db1d2e90e014cc76, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083104902234595864, guid: 9b392c294f3506c4db1d2e90e014cc76, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1879,7 +1879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747616762662350905, guid: 9b392c294f3506c4db1d2e90e014cc76, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8108146281588085228, guid: 9b392c294f3506c4db1d2e90e014cc76, type: 3}
       propertyPath: m_CastShadows
