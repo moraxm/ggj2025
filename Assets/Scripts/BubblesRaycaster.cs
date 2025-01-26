@@ -23,13 +23,37 @@ public class BubblesRaycaster : MonoBehaviour
 
 	private void Update()
 	{
-		if (GameManager.Instance.IsPlaying &&
-			_pushedBubble != null &&
-			InputManager.Instance.BubblePopReleased())
+		if(GameManager.Instance.IsPlaying)
 		{
-			OnBubbleRelease();
-		}
+			if(ManagePowerUp())
+			{
+				return;
+			}
+
+            if (_pushedBubble != null &&
+				InputManager.Instance.BubblePopReleased())
+            {
+                OnBubbleRelease();
+            }
+        }
+
+		
 	}
+
+	bool ManagePowerUp()
+	{
+        bool inUse = PowerUpManager.Instance.IsPowerUpInUse("DragSystem");
+		if (!inUse) { return false; }
+
+		OnBubblePush();
+		if(_pushedBubble != null)
+		{
+            OnBubbleRelease();
+			return true;
+        }
+
+		return false;
+    }
 
 	private bool CanPopBubble()
 	{

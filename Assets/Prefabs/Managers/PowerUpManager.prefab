@@ -48,3 +48,6 @@ MonoBehaviour:
   - _name: Chopstick
     _timeUse: 3
     _timeRecharge: 10
+  - _name: DragSystem
+    _timeUse: 5
+    _timeRecharge: 20

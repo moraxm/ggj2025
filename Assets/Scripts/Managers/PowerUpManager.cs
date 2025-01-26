@@ -106,7 +106,6 @@ public class PowerUpManager : MonoBehaviour
             if(changeStatus)
             {
                 _powerups[i].CanBeUsed = true;
-                Debug.Log(_powerups[i]._name + " can be used!");
             }
         }
     }
@@ -122,8 +121,6 @@ public class PowerUpManager : MonoBehaviour
             {
                 ResetPowerUp(i);
             }
-
-            Debug.Log(_powerups[i]._name + ": time remaining: " + _powerups[i].TimeRemaining);
         }
     }
 
