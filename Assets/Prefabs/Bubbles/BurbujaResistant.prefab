@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurbujaResistant
       objectReference: {fileID: 0}
+    - target: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263937823821239468, guid: a116505029225664c86c0475ebb22126, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -83,15 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushAnimationName: BubbleResistantPush
-  _popAnimationName: Pop
-  _popsAmount: 3
-  _resistantPushEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  _popsAmount: 2
   _resistantPopEvent:
     Guid:
       Data1: 1179639254

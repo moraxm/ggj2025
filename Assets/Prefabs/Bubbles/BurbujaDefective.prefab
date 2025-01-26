@@ -87,4 +87,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushAnimationName: PushSide
-  _popAnimationName: PopSide

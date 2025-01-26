@@ -6,8 +6,6 @@ public class BubbleResistant : Bubble
 	[SerializeField]
 	private uint _popsAmount = 2u;
 	[SerializeField]
-	private EventReference _resistantPushEvent;
-	[SerializeField]
 	private EventReference _resistantPopEvent;
 
 	protected PlayOneShotAudio _playOneShotAudio = null;
@@ -21,26 +19,32 @@ public class BubbleResistant : Bubble
 
 	public override void Push()
 	{
-		_playOneShotAudio.Play(_resistantPushEvent);
 		base.Push();
+		Hit();
 	}
 
-	public override void Pop()
+	public override void Release()
 	{
+		base.Release();
 		++_timesPopped;
-		if (_timesPopped >= _popsAmount)
-		{
-			ActualPop();
-		}
-		else
+		if (_timesPopped < _popsAmount)
 		{
 			_animator.CrossFade("BubbleResistantInversePush", 0.1f);
 		}
 	}
 
-	private void ActualPop()
+	protected void Hit()
+	{
+		if (_timesPopped + 1 >= _popsAmount)
+		{
+			Pop();
+		}
+	}
+
+	protected override void Pop()
 	{
 		_playOneShotAudio.Play(_resistantPopEvent);
+		_animator.CrossFade("Push", 0.1f);
 		base.Pop();
 	}
 }

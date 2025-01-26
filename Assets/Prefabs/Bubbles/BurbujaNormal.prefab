@@ -49,14 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushAnimationName: Push
-  _popAnimationName: Pop
-  _normalPushEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
   _normalPopEvent:
     Guid:
       Data1: -921706616
