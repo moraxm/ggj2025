@@ -95,7 +95,6 @@ public class GameManager : MonoBehaviour
 				_roundsObjects[i] = roundObject;
 			}
 		}
-        Invoke("StartGame", 0.1f);
     }
 
 	public void StartGame()
