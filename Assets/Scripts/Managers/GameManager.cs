@@ -1,6 +1,7 @@
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -235,4 +236,22 @@ public class GameManager : MonoBehaviour
 			menuCameraManager.GoToMainMenu();
 		}
 	}
+
+	public List<Bubble> GetCurrentObjectBubbles()
+	{
+		List<Bubble> toReturn = new List<Bubble>();
+        Transform objectTransform = _roundsObjects[_currentLevel].transform;
+
+		for(int i = 0; i < objectTransform.childCount; ++i )
+		{
+			Transform child = objectTransform.GetChild(i);
+
+			if(child.GetComponent<Bubble>() != null)
+			{
+				toReturn.Add(child.GetComponent<Bubble>());
+			}
+		}
+		return toReturn;
+    }
+
 }

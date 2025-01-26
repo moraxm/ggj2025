@@ -191,7 +191,6 @@ public class Rotate3DObject : MonoBehaviour
         }
 
         _timeAcumRotation += Time.deltaTime;
-        Debug.Log(_timeAcumRotation);
 
         if(_timeAcumRotation > _timeToRotate)
         {

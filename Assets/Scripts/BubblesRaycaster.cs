@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BubblesRaycaster : MonoBehaviour
@@ -25,7 +26,7 @@ public class BubblesRaycaster : MonoBehaviour
 	{
 		if(GameManager.Instance.IsPlaying)
 		{
-			if(ManagePowerUp())
+			if(ManagePowerUpDrag())
 			{
 				return;
 			}
@@ -40,7 +41,7 @@ public class BubblesRaycaster : MonoBehaviour
 		
 	}
 
-	bool ManagePowerUp()
+	bool ManagePowerUpDrag()
 	{
         bool inUse = PowerUpManager.Instance.IsPowerUpInUse("DragSystem");
 		if (!inUse) { return false; }
@@ -55,6 +56,7 @@ public class BubblesRaycaster : MonoBehaviour
 		return false;
     }
 
+
 	private bool CanPopBubble()
 	{
 		return false;
@@ -64,6 +66,11 @@ public class BubblesRaycaster : MonoBehaviour
 	{
 		if (GameManager.Instance.IsPlaying)
 		{
+			if(ManagePowerUpOneShot())
+			{
+				return;
+			}
+
 			Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
             if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
 			{
@@ -83,7 +90,28 @@ public class BubblesRaycaster : MonoBehaviour
         }
 	}
 
-	private void ManageSphereCast(Ray ray, RaycastHit hitInfo)
+	private bool ManagePowerUpOneShot()
+	{
+        if (PowerUpManager.Instance.IsPowerUpInUse("LastOne"))
+		{
+			List<Bubble> bubbles = GameManager.Instance.GetCurrentObjectBubbles();
+
+			for(int i = 0; i < bubbles.Count; ++i)
+			{
+				if (bubbles[i].GetComponent<Collider>().enabled)
+				{
+					bubbles[i].Push();
+                    bubbles[i].Release();
+					return true;
+                }
+			}
+
+        }
+        return false;
+	}
+
+
+    private void ManageSphereCast(Ray ray, RaycastHit hitInfo)
 	{
 		Vector3 originRay = ray.origin;
 		Vector3 destinyPos = hitInfo.point;

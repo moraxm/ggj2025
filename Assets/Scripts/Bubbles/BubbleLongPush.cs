@@ -38,7 +38,13 @@ public class BubbleLongPush : Bubble
         if (PowerUpManager.Instance.IsPowerUpInUse("Chopstick"))
 		{
 			return true;
-		}	
+		}
+
+        if (PowerUpManager.Instance.IsPowerUpInUse("LastOne"))
+        {
+			return true;
+        }
+
         return _timePushed >= _timeToPush;
     }
 
