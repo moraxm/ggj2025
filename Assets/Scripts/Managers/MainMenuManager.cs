@@ -45,7 +45,7 @@ public class MainMenuManager : MonoBehaviour
 
 	public void OnPlay()
     {
-        if (!_menuCameraManager.IsTransitioning)
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
         {
             AudioManager.Instance.PlayOneShot(_clickEvt);
             _menuCameraManager.GoToPlay();
@@ -54,7 +54,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnHowToPlay()
     {
-        if (!_menuCameraManager.IsTransitioning)
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
         {
             AudioManager.Instance.PlayOneShot(_clickEvt);
             _menuCameraManager.GoToHowToPlay();
@@ -63,7 +63,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnCredits()
     {
-        if (!_menuCameraManager.IsTransitioning)
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
         {
             AudioManager.Instance.PlayOneShot(_clickEvt);
             _menuCameraManager.GoToCredits();
@@ -72,7 +72,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnExit()
     {
-        if (!_menuCameraManager.IsTransitioning)
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
         {
             AudioManager.Instance.PlayOneShot(_clickEvt);
             Exit();
