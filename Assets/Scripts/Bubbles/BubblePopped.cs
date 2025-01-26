@@ -3,7 +3,10 @@ public class BubblePopped : Bubble
 	protected override void Start()
 	{
 		_animator.CrossFade("BubblePopped", 0.0f);
-		_collider.enabled = false;
+		if (_collider != null)
+		{
+			_collider.enabled = false;
+		}
 	}
 
 	public override void Push()
