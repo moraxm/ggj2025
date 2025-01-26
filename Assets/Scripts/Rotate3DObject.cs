@@ -172,12 +172,12 @@ public class Rotate3DObject : MonoBehaviour
 
         if(distance > _lastDistanceTouch)
         {
-            ApplyZoom(-1);
+            ApplyZoom(1);
         }
 
         if (distance < _lastDistanceTouch)
         {
-            ApplyZoom(1);
+            ApplyZoom(-1);
         }
 
         _lastDistanceTouch = distance;
