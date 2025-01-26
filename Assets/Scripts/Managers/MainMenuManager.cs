@@ -1,3 +1,5 @@
+using FMODUnity;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,21 +9,29 @@ public class MainMenuManager : MonoBehaviour
     public GameObject DefaultMainMenuObject = null;
 	public GameObject DefaultHowToPlayObject = null;
 	public GameObject DefaultCreditsObject = null;
-    [HideInInspector]
+    [SerializeField]
+    private EventReference _clickEvt;
+	[SerializeField]
+	private EventReference _backEvt;
+	[HideInInspector]
     public bool IsInMainMenuMainScreen = false;
 
 	[SerializeField]
     private MenuCameraManager _menuCameraManager = null;
+	[SerializeField]
+	private Canvas _canvas = null;
 
 	private void OnEnable()
 	{
         IsInMainMenuMainScreen = true;
+        _canvas.enabled = true;
 		EventSystem.current.SetSelectedGameObject(DefaultMainMenuObject);
 		InputManager.Instance.RegisterOnBackPerformed(OnBackPressed);
 	}
 
 	private void OnDisable()
 	{
+        _canvas.enabled = false;
         InputManager inputManager = InputManager.Instance;
         if (inputManager != null)
         {
@@ -35,21 +45,43 @@ public class MainMenuManager : MonoBehaviour
 
 	public void OnPlay()
     {
-        _menuCameraManager.GoToPlay();
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
+        {
+            AudioManager.Instance.PlayOneShot(_clickEvt);
+            _menuCameraManager.GoToPlay();
+        }
     }
 
     public void OnHowToPlay()
     {
-        _menuCameraManager.GoToHowToPlay();
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
+        {
+            AudioManager.Instance.PlayOneShot(_clickEvt);
+            _menuCameraManager.GoToHowToPlay();
+        }
     }
 
     public void OnCredits()
     {
-        _menuCameraManager.GoToCredits();
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
+        {
+            AudioManager.Instance.PlayOneShot(_clickEvt);
+            _menuCameraManager.GoToCredits();
+        }
     }
 
     public void OnExit()
     {
+        if (!_menuCameraManager.IsTransitioning && IsInMainMenuMainScreen)
+        {
+            AudioManager.Instance.PlayOneShot(_clickEvt);
+            Exit();
+        }
+	}
+
+    private void Exit()
+    {
+		AudioManager.Instance.PlayOneShot(_backEvt);
 #if UNITY_EDITOR
 		EditorApplication.isPlaying = false;
 #elif !UNITY_ANDROID
@@ -66,10 +98,11 @@ public class MainMenuManager : MonoBehaviour
 
         if (IsInMainMenuMainScreen)
         {
-            OnExit();
+			Exit();
         }
         else
         {
+            AudioManager.Instance.PlayOneShot(_backEvt);
             _menuCameraManager.GoToMainMenu();
 		}
     }

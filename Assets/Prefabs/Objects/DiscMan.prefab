@@ -70446,6 +70446,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
+      propertyPath: SmokeScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
+      propertyPath: SmokeScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
+      propertyPath: SmokeScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _totalBubbles
       value: 307
       objectReference: {fileID: 0}

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,8 +41,10 @@ public class GameManager : MonoBehaviour
 	private float _timeToMoveObjectBackToInitPos = 1.0f;
 	[SerializeField]
 	private LevelInfo[] _levelsInfo = null;
+    [SerializeField]
+    private PlayableDirector _restartCinemachine = null;
 
-	private BurbujasCreator[] _roundsObjects = null;
+    private BurbujasCreator[] _roundsObjects = null;
 	private uint _currentLevel = 0u;
 	private float _roundTime = 0.0f;
 	private bool _playing = false;
@@ -179,13 +182,17 @@ public class GameManager : MonoBehaviour
 			if (_smoke != null)
 			{
 				AutoKill smoke = Instantiate(_smoke, bubblesCreator.transform.position, Quaternion.identity);
+				smoke.transform.localScale = bubblesCreator.SmokeScale;
 				yield return new WaitForSeconds(smoke.KillTime);
 			}
 			// Kill all remaining bubbles (ñapa que flipas)
 			Bubble[] bubbles = FindObjectsByType<Bubble>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 			for (int i = 0; i < bubbles.Length; ++i)
 			{
-				Destroy(bubbles[i].gameObject);
+				if (bubbles[i].transform.parent == bubblesCreator.transform)
+				{
+					Destroy(bubbles[i].gameObject);
+				}
 			}
 			bubblesCreator.BubblesSubObject.enabled = false;
 			yield return new WaitForSeconds(2.0f);
@@ -217,25 +224,23 @@ public class GameManager : MonoBehaviour
 
 	private void Victory()
 	{
-		IEnumerator VictoryCoroutine()
-		{
-			yield return new WaitForSeconds(3.0f);
-			_musicController.SetReadyForFinale();
-		}
+		//IEnumerator VictoryCoroutine()
+		//{
+		//	yield return new WaitForSeconds(3.0f);
+			
+		//}
 
-		Debug.Log("VICTORY!");
+        Debug.Log("VICTORY!");
 		_gameHUD.SetActive(false);
-		StartCoroutine(VictoryCoroutine());
+		//StartCoroutine(VictoryCoroutine());
+        _musicController.SetReadyForFinale();
 	}
 
 	public void GoBackToMainMenu()
 	{
-		MenuCameraManager menuCameraManager = FindFirstObjectByType<MenuCameraManager>();
-		if (menuCameraManager != null)
-		{
-			menuCameraManager.GoToMainMenu();
-		}
-	}
+		_restartCinemachine.Play();
+
+    }
 
 	public List<Bubble> GetCurrentObjectBubbles()
 	{
