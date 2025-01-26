@@ -35,7 +35,12 @@ public class BubbleResistant : Bubble
 
 	protected void Hit()
 	{
-		if (_timesPopped + 1 >= _popsAmount)
+		if (PowerUpManager.Instance.IsPowerUpInUse("Chopstick"))
+		{
+			_timesPopped = _popsAmount + 2;
+        }
+
+        if (_timesPopped + 1 >= _popsAmount)
 		{
 			Pop();
 		}
