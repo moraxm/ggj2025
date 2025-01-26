@@ -115,27 +115,34 @@ public class Rotate3DObject : MonoBehaviour
     {
         if (GameManager.Instance.IsPlaying)
         {
-            ManageZoom();
-            ManageRotation();
+            bool zoomDone = ManageZoom();
+            if(!zoomDone)
+            {
+                ManageRotation();
+            }
         }
     }
 
-    private void ManageZoom()
+    private bool ManageZoom()
     {
         if(!_zoomEnabled)
         {
-            return;
+            return false;
         }
 
-        ZoomMouse();
-        ZoomTouch();
+        bool zoomMouse = ZoomMouse();
+        bool zoomTouch = ZoomTouch();
+
+        return zoomMouse || zoomTouch;
     }
 
-    private void ZoomMouse()
+    private bool ZoomMouse()
     {
         float zoom = GetZoom();
 
         ApplyZoom(zoom);
+
+        return zoom != 0;
     }
 
     private void ApplyZoom(float value)
@@ -161,9 +168,9 @@ public class Rotate3DObject : MonoBehaviour
         
     }
 
-    private void ZoomTouch()
+    private bool ZoomTouch()
     {
-        if (!_pitch2Press) { return; }
+        if (!_pitch2Press) { return false; }
 
         Vector2 pitch1 = InputManager.Instance.ReadPitch1();
         Vector2 pitch2 = InputManager.Instance.ReadPitch2();
@@ -181,6 +188,8 @@ public class Rotate3DObject : MonoBehaviour
         }
 
         _lastDistanceTouch = distance;
+
+        return distance != 0;
     }
 
     private void ManageRotation()

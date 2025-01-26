@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Outside_mat
     second: {fileID: 2100000, guid: e3e38c57c48b2dd44ada4bc41087745d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: e3e38c57c48b2dd44ada4bc41087745d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1

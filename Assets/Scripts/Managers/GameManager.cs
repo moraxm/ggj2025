@@ -94,6 +94,11 @@ public class GameManager : MonoBehaviour
 
 	private void Init()
 	{
+		CreateObjects();
+    }
+
+	private void CreateObjects()
+	{
 		_roundsObjects = new BurbujasCreator[_levelsInfo.Length];
 		for (int i = 0; i < _levelsInfo.Length; ++i)
 		{
@@ -179,6 +184,7 @@ public class GameManager : MonoBehaviour
 			yield return new WaitForSeconds(1.0f);
 
 			BurbujasCreator bubblesCreator = _roundsObjects[_currentLevel];
+			bubblesCreator.transform.eulerAngles = Vector3.zero;
 			if (_smoke != null)
 			{
 				AutoKill smoke = Instantiate(_smoke, bubblesCreator.transform.position, Quaternion.identity);
@@ -239,7 +245,8 @@ public class GameManager : MonoBehaviour
 	public void GoBackToMainMenu()
 	{
 		_restartCinemachine.Play();
-
+		FindFirstObjectByType<MainMenuManager>().enabled = true;
+		CreateObjects();
     }
 
 	public List<Bubble> GetCurrentObjectBubbles()
