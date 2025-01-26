@@ -3491,6 +3491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
       propertyPath: m_Name
       value: VHS_BURBUJAS
@@ -3505,10 +3509,31 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7369492097739207438}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1973780476508918553}
   m_SourcePrefab: {fileID: 100100000, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
 --- !u!4 &7008280465786148378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
   m_PrefabInstance: {fileID: 7406398898731971057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7640842062024035488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
+  m_PrefabInstance: {fileID: 7406398898731971057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973780476508918553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7640842062024035488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a8a6358163c964ebd234ee1f55b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflectionProbe: {fileID: 9041638829439380431, guid: 84cfc503aa79dab409b837f245b83c7c, type: 3}
