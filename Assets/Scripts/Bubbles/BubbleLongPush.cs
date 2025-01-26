@@ -25,12 +25,22 @@ public class BubbleLongPush : Bubble
 		if (_pushed)
 		{
 			_timePushed = Mathf.Min(_timePushed + Time.deltaTime, _timeToPush);
-			if (_timePushed >= _timeToPush )
+
+            if (canDoPop() )
 			{
 				Pop();
 			}
 		}
 	}
+
+	private bool canDoPop()
+	{
+        if (PowerUpManager.Instance.IsPowerUpInUse("Chopstick"))
+		{
+			return true;
+		}	
+        return _timePushed >= _timeToPush;
+    }
 
 	public override void Push()
 	{
