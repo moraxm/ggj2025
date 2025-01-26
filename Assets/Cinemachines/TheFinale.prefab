@@ -1224,7 +1224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6028558753635880334}
   - component: {fileID: 8019197811827968589}
-  - component: {fileID: 1069708410251788199}
   m_Layer: 0
   m_Name: TheFinale
   m_TagString: Untagged
@@ -1297,18 +1296,6 @@ PlayableDirector:
     - d09452d038b78a647ba8b3d813101958: {fileID: 2766086466005558579}
     - 960f5a3ca75c29a458d49f3a47496bbb: {fileID: 1123700781623312140}
     - 16ac3a5cd18af1b41ae85b1afc20941e: {fileID: 0}
---- !u!114 &1069708410251788199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8014303516583041482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18286267eef8a4f409eebd886f80a5d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8218099289351999343
 GameObject:
   m_ObjectHideFlags: 0
