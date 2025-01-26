@@ -4,9 +4,15 @@ public class BubbleDefective : Bubble
 	{
 		// Sin sonido
 		base.Push();
+		Pop();
 	}
 
-	public override void Pop()
+	public override void Release()
+	{
+		base.Release();
+	}
+
+	protected override void Pop()
 	{
 		// Sin sonido
 		base.Pop();

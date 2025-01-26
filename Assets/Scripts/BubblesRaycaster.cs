@@ -27,7 +27,7 @@ public class BubblesRaycaster : MonoBehaviour
 			_pushedBubble != null &&
 			InputManager.Instance.BubblePopReleased())
 		{
-			OnBubblePop();
+			OnBubbleRelease();
 		}
 	}
 
@@ -54,9 +54,9 @@ public class BubblesRaycaster : MonoBehaviour
 		}
 	}
 
-	private void OnBubblePop()
+	private void OnBubbleRelease()
 	{
-		_pushedBubble.Pop();
+		_pushedBubble.Release();
 		_pushedBubble = null;
 	}
 }

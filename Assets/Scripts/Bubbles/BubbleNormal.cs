@@ -4,8 +4,6 @@ using UnityEngine;
 public class BubbleNormal : Bubble
 {
 	[SerializeField]
-	private EventReference _normalPushEvent;
-	[SerializeField]
 	private EventReference _normalPopEvent;
 
 	protected PlayOneShotAudio _playOneShotAudio = null;
@@ -18,11 +16,16 @@ public class BubbleNormal : Bubble
 
 	public override void Push()
 	{
-		_playOneShotAudio.Play(_normalPushEvent);
 		base.Push();
+		Pop();
 	}
 
-	public override void Pop()
+	public override void Release()
+	{
+		base.Release();
+	}
+
+	protected override void Pop()
 	{
 		_playOneShotAudio.Play(_normalPopEvent);
 		base.Pop();

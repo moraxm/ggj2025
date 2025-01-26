@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurbujaPopped
       objectReference: {fileID: 0}
+    - target: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263937823821239468, guid: a116505029225664c86c0475ebb22126, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -82,5 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f4a1044bf29964b882c43bd6966ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pushAnimationName: Push
-  _popAnimationName: Pop
+  _pushAnimationName: 

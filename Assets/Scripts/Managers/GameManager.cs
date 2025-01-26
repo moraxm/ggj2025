@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private TextMeshProUGUI _timeRemainingText = null;
 	[SerializeField]
+	private EventReference _wrapEvtRef;
+	[SerializeField]
 	private TextMeshProUGUI _bubblesRemainingText = null;
 	[SerializeField]
 	private float _timeToMoveObjectToPlayPos = 1.0f;
@@ -34,21 +38,21 @@ public class GameManager : MonoBehaviour
 
 	private BurbujasCreator[] _roundsObjects = null;
 	private uint _currentLevel = 0u;
-	private float _roundTimeRemaining = 0.0f;
+	private float _roundTime = 0.0f;
 	private bool _playing = false;
 	private uint _bubblesRemaining = 0u;
 
 	public bool IsPlaying => _playing;
 
-	private float RoundTimeRemaning
+	private float RoundTime
 	{
 		get
 		{
-			return _roundTimeRemaining;
+			return _roundTime;
 		}
 		set
 		{
-			_roundTimeRemaining = value;
+			_roundTime = value;
 			_timeRemainingText.text = ((uint)value).ToString();
 		}
 	}
@@ -104,11 +108,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (_playing)
 		{
-			RoundTimeRemaning = Mathf.Max(RoundTimeRemaning - Time.deltaTime, 0.0f);
-			if (RoundTimeRemaning <= 0.0f)
-			{
-				GameOver();
-			}
+			RoundTime += Time.deltaTime;
 		}
 	}
 
@@ -116,7 +116,12 @@ public class GameManager : MonoBehaviour
 	{
 		IEnumerator StartLevelCoroutine()
 		{
-			yield return new WaitForSeconds(1.0f);
+			Debug.Log("Creating round " + level);
+			EventInstance wrapEvent = AudioManager.Instance.CreateInstance(_wrapEvtRef);
+			wrapEvent.start();
+			yield return new WaitForSeconds(4.0f);
+			wrapEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+			wrapEvent.release();
 			Transform objectTransform = _roundsObjects[_currentLevel].transform;
 			float timeElapsed = 0.0f;
 			while (timeElapsed < _timeToMoveObjectToPlayPos)
@@ -125,16 +130,16 @@ public class GameManager : MonoBehaviour
 				objectTransform.position = Vector3.Lerp(_objectsInitialTransform.position, _objectsPlayTransform.position, timeElapsed / _timeToMoveObjectToPlayPos); 
 				yield return null;
 			}
-			yield return new WaitForSeconds(2.0f);
+			BubblesRemaining = _roundsObjects[level].TotalBubbles;
+			yield return new WaitForSeconds(0.2f);
 			Debug.Log("Round started");
+			// Enable rotation
+			objectTransform.GetComponent<Rotate3DObject>().enabled = true;
 			_playing = true;
 			PowerUpManager.Instance.StartLevel();
 		}
 
 		_currentLevel = level;
-		Debug.Log("Creating round " + level);
-		BubblesRemaining = _roundsObjects[level].TotalBubbles;
-		RoundTimeRemaning = _levelsInfo[level].RoundTime;
 
 		StartCoroutine(StartLevelCoroutine());
 	}
@@ -171,7 +176,6 @@ public class GameManager : MonoBehaviour
 			}
 			// Destroy the object
 			Destroy(objectTransform.gameObject);
-			yield return new WaitForSeconds(2.0f);
 			// Check next round
 			if (_currentLevel < _levelsInfo.Length - 1)
 			{
@@ -199,18 +203,6 @@ public class GameManager : MonoBehaviour
 		StartCoroutine(VictoryCoroutine());
 	}
 
-	private void GameOver()
-	{
-		IEnumerator GameOverCoroutine()
-		{
-			yield return new WaitForSeconds(3.0f);
-			GoBackToMainMenu();
-		}
-
-		Debug.Log("GAME OVER!");
-		_playing = false;
-		StartCoroutine(GameOverCoroutine());
-	}
 
 	private void GoBackToMainMenu()
 	{

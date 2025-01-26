@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurbujaLongPush
       objectReference: {fileID: 0}
+    - target: {fileID: 3423451408336054248, guid: a116505029225664c86c0475ebb22126, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263937823821239468, guid: a116505029225664c86c0475ebb22126, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -82,20 +86,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45791fdb30db752499bf6fbb50b73a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pushAnimationName: Push
-  _popAnimationName: Pop
-  _timeToPush: 1
-  _longPushEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  _pushAnimationName: LongPush
+  _timeToPush: 0.5
   _longPopEvent:
     Guid:
-      Data1: 1179639254
-      Data2: 1312323568
-      Data3: 968533124
-      Data4: -1712234954
-    Path: event:/BubblePop
+      Data1: -1191638186
+      Data2: 1306329960
+      Data3: 1485035429
+      Data4: 1822713610
+    Path: event:/BubblePopSoft

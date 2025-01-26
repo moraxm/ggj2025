@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{46e454a7-674c-48ce-ab87-bd68f2e2fdaa}">
+		<property name="assetPath">
+			<value>pop7-chispita.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.26581250000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0241b15-1520-47a3-a430-768bf8e5cc19}</destination>
+		</relationship>
+	</object>
+</objects>
