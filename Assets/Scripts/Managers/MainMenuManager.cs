@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -12,16 +13,20 @@ public class MainMenuManager : MonoBehaviour
 
 	[SerializeField]
     private MenuCameraManager _menuCameraManager = null;
+	[SerializeField]
+	private Canvas _canvas = null;
 
 	private void OnEnable()
 	{
         IsInMainMenuMainScreen = true;
+        _canvas.enabled = true;
 		EventSystem.current.SetSelectedGameObject(DefaultMainMenuObject);
 		InputManager.Instance.RegisterOnBackPerformed(OnBackPressed);
 	}
 
 	private void OnDisable()
 	{
+        _canvas.enabled = false;
         InputManager inputManager = InputManager.Instance;
         if (inputManager != null)
         {

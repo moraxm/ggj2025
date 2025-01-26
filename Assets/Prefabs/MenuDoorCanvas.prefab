@@ -185,6 +185,7 @@ MonoBehaviour:
   DefaultCreditsObject: {fileID: 0}
   IsInMainMenuMainScreen: 0
   _menuCameraManager: {fileID: 0}
+  _canvas: {fileID: 3932618406828569803}
 --- !u!1 &1169514141055051989
 GameObject:
   m_ObjectHideFlags: 0
