@@ -304,6 +304,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5374a9403b753044a92ca96220e62126, type: 3}
+--- !u!320 &521704324 stripped
+PlayableDirector:
+  m_CorrespondingSourceObject: {fileID: 8019197811827968589, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+  m_PrefabInstance: {fileID: 9104427345879198060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &784901926 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 660074113459198629, guid: 4aabda6de1ea3ea4aa4575b4acca4ab7, type: 3}
@@ -1198,6 +1203,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 521704324}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Playables.PlayableDirector, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126826594593518756, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
+      propertyPath: _onFinaleStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7549359813584182524, guid: 36d3b6af615268a41b35092c13d33ea4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1270,6 +1303,38 @@ PrefabInstance:
     - target: {fileID: 1560086489405266534, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.data[4].Rotation.value.y
       value: 2.342485e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7045443
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3326348
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.3731575
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7953478
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.32667285
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4723075
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699556848861815547, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.19399063
+      objectReference: {fileID: 0}
+    - target: {fileID: 3417284153159586492, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
       objectReference: {fileID: 0}
     - target: {fileID: 6028558753635880334, guid: fec1dfcc0352c3946b74e39d8e28b926, type: 3}
       propertyPath: m_LocalPosition.x
