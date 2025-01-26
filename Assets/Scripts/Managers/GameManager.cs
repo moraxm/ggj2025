@@ -182,6 +182,7 @@ public class GameManager : MonoBehaviour
 			if (_smoke != null)
 			{
 				AutoKill smoke = Instantiate(_smoke, bubblesCreator.transform.position, Quaternion.identity);
+				smoke.transform.localScale = bubblesCreator.SmokeScale;
 				yield return new WaitForSeconds(smoke.KillTime);
 			}
 			// Kill all remaining bubbles (ñapa que flipas)

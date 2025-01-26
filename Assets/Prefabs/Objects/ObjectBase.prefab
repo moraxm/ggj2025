@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ef7b269bc1f3428fb6f2e064b4f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BubblesSubObject: {fileID: 0}
   _creatorInfo: []
   _distanceBetweenBurbujas: 0.01
   _splines: []
+  SmokeScale: {x: 1, y: 1, z: 1}
   _totalBubbles: 0
 --- !u!114 &3961902418576458862
 MonoBehaviour:

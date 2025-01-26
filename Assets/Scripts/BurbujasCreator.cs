@@ -19,8 +19,9 @@ public class BurbujasCreator : MonoBehaviour
     private float _distanceBetweenBurbujas = 0.01f;
     [SerializeField]
     private List<SplineContainer> _splines = new List<SplineContainer>();
-    // Set by Editor script code
-    [SerializeField]
+	public Vector3 SmokeScale = Vector3.one;
+	// Set by Editor script code
+	[SerializeField]
     private uint _totalBubbles = 0u;
 
     public uint TotalBubbles => _totalBubbles;
