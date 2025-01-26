@@ -78768,6 +78768,10 @@ PrefabInstance:
       value: 357
       objectReference: {fileID: 0}
     - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
+      propertyPath: BubblesSubObject
+      value: 
+      objectReference: {fileID: 8145117471077166453}
+    - target: {fileID: 4527565067093907148, guid: d4475cb3fb4f8ce45b990157124fc1d1, type: 3}
       propertyPath: _splines.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -80202,5 +80206,10 @@ PrefabInstance:
 --- !u!4 &7008280465786148378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
+  m_PrefabInstance: {fileID: 7406398898731971057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8145117471077166453 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: bf5c5d12af526c448b489033e1bab6b3, type: 3}
   m_PrefabInstance: {fileID: 7406398898731971057}
   m_PrefabAsset: {fileID: 0}
