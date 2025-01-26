@@ -368,11 +368,9 @@ MonoBehaviour:
   _zoomEnabled: 1
   _maxDistance: {x: 20, y: 80}
   _factorZoom: 5
-  _useAceleration: 0
-  _weight: 20
-  _accelerationBrakeMagnitude: 10
-  _maxAceleration: 30
-  _maxVelocity: 30
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1645951145
 MonoBehaviour:
   m_ObjectHideFlags: 0

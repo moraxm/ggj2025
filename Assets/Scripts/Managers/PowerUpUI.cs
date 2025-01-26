@@ -38,5 +38,9 @@ public class PowerUpUI : MonoBehaviour
             float progress = timeRemaining / p._timeRecharge;
             _loadingBar.fillAmount = progress;
         }
+        else
+        {
+            _loadingBar.fillAmount = 0;
+        }
     }
 }

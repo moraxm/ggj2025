@@ -73,10 +73,25 @@ public class Rotate3DObject : MonoBehaviour
     protected virtual void OnRightClickPressed()
     {
         Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.ReadCursorTouch());
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide))
+        bool resultRaycast = Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _layerMask, QueryTriggerInteraction.Collide);
+        if (ExpectedResultRaycast(resultRaycast))
         {
             _rotateAllowed = true;
         }
+    }
+
+    private bool ExpectedResultRaycast(bool result)
+    {
+        bool inUse = PowerUpManager.Instance.IsPowerUpInUse("DragSystem");
+        if( inUse )
+        {
+            return !result;
+        }
+        else
+        {
+            return result;
+        }
+
     }
 
     protected virtual void OnRightClickReleased()
