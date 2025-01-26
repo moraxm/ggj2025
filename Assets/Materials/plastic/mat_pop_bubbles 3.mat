@@ -25,9 +25,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _CLEARCOATMAP
+  - _ALPHATEST_ON
   - _DETAIL_MULX2
-  - _EMISSION
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
@@ -35,10 +34,10 @@ Material:
   - _SPECULAR_SETUP
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: 3008
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -58,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: d06cd7c6ce7709742bf00785956850b8, type: 3}
-        m_Scale: {x: 1.04, y: 0.71}
+        m_Scale: {x: 0.63, y: -0.15}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 8f25f4913f1a85640a3b04c6401acbe9, type: 3}
@@ -175,7 +174,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _AlphaClip: 0
+    - _AlphaClip: 1
     - _AlphaToMask: 0
     - _BASE_COLOR_WEIGHT: 1
     - _BUILTIN_QueueControl: -1
@@ -184,18 +183,18 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 0
     - _BlendOp: 0
-    - _BumpScale: 50
+    - _BumpScale: 90
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
-    - _ClearCoat: 1
+    - _ClearCoat: 0
     - _ClearCoatMask: 0.809
     - _ClearCoatSmoothness: 0.821
     - _ColorMode: 0
     - _Cull: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 0.348
     - _DetailAlbedoMapScale: 1
-    - _DetailNormalMapScale: 1.57
+    - _DetailNormalMapScale: 1.22
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
@@ -218,10 +217,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OPACITY: 1
-    - _OcclusionStrength: 0.918
-    - _Parallax: 0.0056
+    - _OcclusionStrength: 0.948
+    - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: 1
+    - _QueueOffset: 8
     - _REFLECTIONS_IOR: 1.52
     - _REFLECTIONS_ROUGHNESS: 1
     - _REFLECTIONS_WEIGHT: 1
@@ -229,7 +228,7 @@ Material:
     - _SPECULAR_IOR: 1.5
     - _SPECULAR_ROUGHNESS: 0
     - _Shininess: 0.078125
-    - _Smoothness: 0.713
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -246,12 +245,12 @@ Material:
     - _snow_slider: 7.350427
     m_Colors:
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.98490566, g: 0.98490566, b: 0.98490566, a: 0.8117647}
+    - _BaseColor: {r: 0.09437505, g: 0.8021136, b: 0.90943396, a: 0.8627451}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.35686275}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.000015090133, g: 0, b: 0.0031907945, a: 1}
+    - _EmissionColor: {r: 0.0017006374, g: 0.0016998516, b: 0.0018499411, a: 1}
     - _REFLECTIONS_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

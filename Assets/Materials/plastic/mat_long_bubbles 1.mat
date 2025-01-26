@@ -38,7 +38,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: 3009
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -218,10 +218,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OPACITY: 1
-    - _OcclusionStrength: 1
+    - _OcclusionStrength: 0
     - _Parallax: 0.08
     - _QueueControl: 0
-    - _QueueOffset: 1
+    - _QueueOffset: 9
     - _REFLECTIONS_IOR: 1.52
     - _REFLECTIONS_ROUGHNESS: 1
     - _REFLECTIONS_WEIGHT: 1
@@ -229,7 +229,7 @@ Material:
     - _SPECULAR_IOR: 1.5
     - _SPECULAR_ROUGHNESS: 0
     - _Shininess: 0.078125
-    - _Smoothness: 0.21
+    - _Smoothness: 0.277
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -246,12 +246,12 @@ Material:
     - _snow_slider: 7.350427
     m_Colors:
     - _BASE_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.7254902}
+    - _BaseColor: {r: 0.7433963, g: 0.7279673, b: 0.7279673, a: 0.9372549}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0.35686275}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0.02334905, b: 0.022120152, a: 1}
+    - _EmissionColor: {r: 0.0552338, g: 0.0552338, b: 0.0552338, a: 1}
     - _REFLECTIONS_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
