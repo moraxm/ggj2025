@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private MusicController _musicController = null;
 	[SerializeField]
+	private GameObject _gameHUD = null;
+	[SerializeField]
 	private Transform _objectsInitialTransform = null;
 	[SerializeField]
 	private Transform _objectsPlayTransform = null;
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
+		_gameHUD.SetActive(true);
 		_musicController.SetParameterForLevel(_currentLevel);
 		StartLevel(0u);
 	}
@@ -199,6 +202,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		Debug.Log("VICTORY!");
+		_gameHUD.SetActive(false);
 		StartCoroutine(VictoryCoroutine());
 	}
 
