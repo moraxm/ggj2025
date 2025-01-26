@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3260550017262241266}
   - component: {fileID: 8526465004833514913}
+  - component: {fileID: 2986362042322114173}
+  - component: {fileID: 5172788492000617705}
   m_Layer: 0
   m_Name: RestartCinemachine
   m_TagString: Untagged
@@ -44,7 +46,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: ca8eab70f013bc740981173b98acfd06, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -59,12 +61,70 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -6974819716627742812, guid: ca8eab70f013bc740981173b98acfd06, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 5899305535499329375, guid: ca8eab70f013bc740981173b98acfd06, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2097987334314428849, guid: ca8eab70f013bc740981173b98acfd06, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 2233d23012cc5e849934d59b946ff5cd: {fileID: 0}
     - 0ee719dfb85059343b08a265500ac7cf: {fileID: 0}
     - 2ee7373c8f04c13428c1dbb6117310ed: {fileID: 0}
     - ab25eaa32972ae341987bd83d2ea5f7c: {fileID: 3937053516073832100}
+--- !u!114 &2986362042322114173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762553613224720659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2638ac401a2e7c148b3609a802937620, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5172788492000617705}
+          m_TargetAssemblyTypeName: TryAgain, Assembly-CSharp
+          m_MethodName: ActivateRestart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &5172788492000617705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762553613224720659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18286267eef8a4f409eebd886f80a5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3086761854721253229
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 9099753063131499379}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00009856164, y: 0.99974537, z: -0.022121526, w: 0.0044543287}
-  m_LocalPosition: {x: 5.457046, y: 3.9699414, z: 9.46986}
+  m_LocalPosition: {x: 5.4747868, y: 3.9693193, z: 6.07081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

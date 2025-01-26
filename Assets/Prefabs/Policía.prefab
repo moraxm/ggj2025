@@ -44,7 +44,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 16.96
+  m_Intensity: 22.22
   m_Range: 5.4759226
   m_SpotAngle: 92.123405
   m_InnerSpotAngle: 0
@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7348709228741005926}
   - component: {fileID: 3974717830288869058}
+  - component: {fileID: 5157862847874258537}
   m_Layer: 0
   m_Name: "Polic\xEDa"
   m_TagString: Untagged
@@ -177,6 +178,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5157862847874258537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4843211132161652092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c4979f6a37137428fdea63782d70c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: 45
 --- !u!1 &9180448500104200685
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +235,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.03847456, g: 0, b: 1, a: 1}
-  m_Intensity: 16.96
+  m_Intensity: 22.22
   m_Range: 5.4811935
   m_SpotAngle: 80.68191
   m_InnerSpotAngle: 0
