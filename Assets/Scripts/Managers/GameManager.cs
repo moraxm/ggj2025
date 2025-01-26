@@ -224,15 +224,16 @@ public class GameManager : MonoBehaviour
 
 	private void Victory()
 	{
-		IEnumerator VictoryCoroutine()
-		{
-			yield return new WaitForSeconds(3.0f);
-			_musicController.SetReadyForFinale();
-		}
+		//IEnumerator VictoryCoroutine()
+		//{
+		//	yield return new WaitForSeconds(3.0f);
+			
+		//}
 
-		Debug.Log("VICTORY!");
+        Debug.Log("VICTORY!");
 		_gameHUD.SetActive(false);
-		StartCoroutine(VictoryCoroutine());
+		//StartCoroutine(VictoryCoroutine());
+        _musicController.SetReadyForFinale();
 	}
 
 	public void GoBackToMainMenu()

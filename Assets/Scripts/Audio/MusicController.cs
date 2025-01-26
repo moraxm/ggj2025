@@ -40,9 +40,9 @@ public class MusicController : MonoBehaviour
 			}
             else
             {
-				AudioManager.Instance.StopAudioEvent(_musicInstance, FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-				_onFinaleStart?.Invoke();
-				_readyForFinale = false;
+				//AudioManager.Instance.StopAudioEvent(_musicInstance, FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+				//_onFinaleStart?.Invoke();
+				//_readyForFinale = false;
 			}
         }
 		_lastPlaybackPosition = pos;
@@ -63,8 +63,12 @@ public class MusicController : MonoBehaviour
 
 	public void SetReadyForFinale()
 	{
-		_readyForFinale = true;
-	}
+        //_readyForFinale = true;
+
+        AudioManager.Instance.StopAudioEvent(_musicInstance, FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _onFinaleStart?.Invoke();
+        _readyForFinale = false;
+    }
 
 	private void OnDestroy()
 	{
