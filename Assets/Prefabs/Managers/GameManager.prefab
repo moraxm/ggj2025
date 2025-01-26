@@ -1250,7 +1250,7 @@ MonoBehaviour:
   _gameHUD: {fileID: 8935254150959657201}
   _objectsInitialTransform: {fileID: 0}
   _objectsPlayTransform: {fileID: 0}
-  _timeRemainingText: {fileID: 3304336404264444081}
+  roundTimeText: {fileID: 3304336404264444081}
   _wrapEvtRef:
     Guid:
       Data1: 1599717170

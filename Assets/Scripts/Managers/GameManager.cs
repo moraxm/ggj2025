@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private Transform _objectsPlayTransform = null;
 	[SerializeField]
-	private TextMeshProUGUI _timeRemainingText = null;
+	private TextMeshProUGUI roundTimeText = null;
 	[SerializeField]
 	private EventReference _wrapEvtRef;
 	[SerializeField]
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 		set
 		{
 			_roundTime = value;
-			_timeRemainingText.text = ((uint)value).ToString();
+			roundTimeText.text = ((uint)value).ToString();
 		}
 	}
 
@@ -247,6 +247,7 @@ public class GameManager : MonoBehaviour
 		_restartCinemachine.Play();
 		FindFirstObjectByType<MainMenuManager>().enabled = true;
 		CreateObjects();
+		RoundTime = 0.0f;
     }
 
 	public List<Bubble> GetCurrentObjectBubbles()
