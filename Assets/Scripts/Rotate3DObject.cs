@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,14 +19,11 @@ public class Rotate3DObject : MonoBehaviour
     private float _lastDistanceTouch = 0;
     private bool _pitch2Press = false;
 
-    private Camera _camera = null;
-
     [SerializeField] private LayerMask _layerMask;
 
     #endregion
     private void Start()
     {
-        _camera = Camera.main;
         _layerMask = LayerMask.GetMask("Bubble", "Object");
 
         InitializeInputSystem();
@@ -138,9 +136,25 @@ public class Rotate3DObject : MonoBehaviour
 
     private void ApplyZoom(float value)
     {
-        _camera.fieldOfView += -value * _factorZoom;
+        GameObject[] cameras = GameObject.FindGameObjectsWithTag("CameraZoom");
 
-        _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _maxDistance.x, _maxDistance.y);
+        if(cameras.Length == 0)
+        {
+            Camera _camera = Camera.main;
+            _camera.fieldOfView += -value * _factorZoom;
+            _camera.fieldOfView = Mathf.Clamp(_camera.fieldOfView, _maxDistance.x, _maxDistance.y);
+        }
+        else
+        {
+            for(int i = 0;i < cameras.Length; ++i)
+            {
+                CinemachineCamera cam = cameras[i].GetComponent<CinemachineCamera>();
+                cam.Lens.FieldOfView += -value * _factorZoom;
+                cam.Lens.FieldOfView = Mathf.Clamp(cam.Lens.FieldOfView, _maxDistance.x, _maxDistance.y);
+            }
+        }
+
+        
     }
 
     private void ZoomTouch()

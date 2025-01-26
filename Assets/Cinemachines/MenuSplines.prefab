@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1521345140429745332}
   m_Layer: 0
   m_Name: GameplayCamera
-  m_TagString: Untagged
+  m_TagString: CameraZoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 7178688602765023527}
   m_Layer: 0
   m_Name: GameplayCameraBokeh
-  m_TagString: Untagged
+  m_TagString: CameraZoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
