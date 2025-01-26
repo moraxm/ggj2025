@@ -19,14 +19,20 @@ public class MusicController : MonoBehaviour
 
     private void Start()
     {
-        if (!_musicEvtRef.IsNull)
-        {
+		PlayMusic();
+    }
+
+	public void PlayMusic()
+	{
+		_parameterToApply = 0.0f;
+		if (!_musicEvtRef.IsNull)
+		{
 			_musicInstance = AudioManager.Instance.CreateInstance(_musicEvtRef);
-            _musicInstance.start();
+			_musicInstance.start();
 			_parameterToApply = 1.0f;
 			AudioManager.Instance.SetParameter(_musicInstance, kParameterName, _parameterToApply);
 		}
-    }
+	}
 
 	private void Update()
 	{

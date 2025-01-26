@@ -248,6 +248,7 @@ public class GameManager : MonoBehaviour
 		FindFirstObjectByType<MainMenuManager>().enabled = true;
 		CreateObjects();
 		RoundTime = 0.0f;
+		_musicController.PlayMusic();
     }
 
 	public List<Bubble> GetCurrentObjectBubbles()
