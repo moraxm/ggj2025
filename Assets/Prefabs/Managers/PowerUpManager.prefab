@@ -54,3 +54,6 @@ MonoBehaviour:
   - _name: SphereCast
     _timeUse: 2
     _timeRecharge: 15
+  - _name: LastOne
+    _timeUse: 1
+    _timeRecharge: 30

@@ -40,6 +40,11 @@ public class BubbleResistant : Bubble
 			_timesPopped = _popsAmount + 2;
         }
 
+		if(PowerUpManager.Instance.IsPowerUpInUse("LastOne"))
+		{
+            _timesPopped = _popsAmount + 2;
+        }
+
         if (_timesPopped + 1 >= _popsAmount)
 		{
 			Pop();
