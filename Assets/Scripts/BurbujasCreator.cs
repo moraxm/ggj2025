@@ -18,29 +18,43 @@ public class BurbujasCreator : MonoBehaviour
     private float _distanceBetweenBurbujas;
     [SerializeField]
     private List<SplineContainer> _splines = new List<SplineContainer>();
-
-    private uint _totalPriorities = 0u;
+    // Set by Editor script code
+    [SerializeField]
     private uint _totalBubbles = 0u;
 
     public uint TotalBubbles => _totalBubbles;
 
-	private void Awake()
-	{
+#if UNITY_EDITOR
+    public void GenerateBurbujas()
+    {
+        DestroyAllBurbujas();
+
+        uint totalPriorities = 0u;
 		for (int i = 0; i < _creatorInfo.Length; ++i)
 		{
-			_totalPriorities += _creatorInfo[i].Priority;
+			totalPriorities += _creatorInfo[i].Priority;
 		}
-	}
 
-	private void Start()
-    {
-		for (int i = 0; i < _splines.Count; ++i)
+        for (int i = 0; i < _splines.Count; ++i)
         {
-            GenerateBurbujas(_splines[i]);
+            GenerateBurbujas(_splines[i], totalPriorities);
         }
     }
 
-    private void GenerateBurbujas(SplineContainer container)
+    public void DestroyAllBurbujas()
+    {
+        for (int i = transform.childCount - 1; i >= 0; --i)
+        {
+            Transform child = transform.GetChild(i);
+            if (child.GetComponent<Bubble>() != null)
+            {
+                DestroyImmediate(child.gameObject);
+            }
+        }
+        _totalBubbles = 0u;
+    }
+
+    private void GenerateBurbujas(SplineContainer container, uint totalPriorities)
     {
         BurbujaOffset burbujaOffset;
         float Offset = 0;
@@ -56,7 +70,7 @@ public class BurbujasCreator : MonoBehaviour
 
             container.Spline.Evaluate((b * i) + Offset, out float3 pos, out _, out float3 up);
 
-            Bubble bubblePrefab = ChooseBubbleToSpawn();
+            Bubble bubblePrefab = ChooseBubbleToSpawn(totalPriorities);
             if (bubblePrefab != null)
             {
                 Bubble bubble = Instantiate(bubblePrefab, container.transform.TransformPoint(pos), Quaternion.LookRotation(up), transform);
@@ -68,7 +82,7 @@ public class BurbujasCreator : MonoBehaviour
         }
     }
 
-    private Bubble ChooseBubbleToSpawn()
+    private Bubble ChooseBubbleToSpawn(uint totalPriorities)
     {
 		Bubble bubblePrefab = null;
 		if (_creatorInfo.Length <= 0)
@@ -77,7 +91,7 @@ public class BurbujasCreator : MonoBehaviour
         }
 
         // Choose random number in range of [0, totalPriorities)
-        uint random = (uint)UnityEngine.Random.Range(0, _totalPriorities - 1);
+        uint random = (uint)UnityEngine.Random.Range(0, totalPriorities - 1);
         // Loop through all creatorInfo summing the priorities.
         // When accumulated priorities are higher than the random number, that's the prefab we will use
         uint accumPriorities = 0u;
@@ -93,4 +107,5 @@ public class BurbujasCreator : MonoBehaviour
 
         return bubblePrefab;
     }
+#endif
 }
