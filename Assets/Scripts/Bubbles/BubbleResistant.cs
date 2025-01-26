@@ -27,6 +27,11 @@ public class BubbleResistant : Bubble
 
 	public override void Pop()
 	{
+		if(PowerUpManager.Instance.IsPowerUpInUse("Chopstick"))
+		{
+			_timesPopped = _popsAmount;
+        }
+
 		++_timesPopped;
 		if (_timesPopped >= _popsAmount)
 		{

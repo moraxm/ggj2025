@@ -91,7 +91,8 @@ public class GameManager : MonoBehaviour
 				_roundsObjects[i] = roundObject;
 			}
 		}
-	}
+        Invoke("StartGame", 0.1f);
+    }
 
 	public void StartGame()
 	{
@@ -127,6 +128,7 @@ public class GameManager : MonoBehaviour
 			yield return new WaitForSeconds(2.0f);
 			Debug.Log("Round started");
 			_playing = true;
+			PowerUpManager.Instance.StartLevel();
 		}
 
 		_currentLevel = level;
@@ -151,7 +153,9 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Round Completed!");
 		_playing = false;
-		IEnumerator RoundCompletedCoroutine()
+        PowerUpManager.Instance.EndLevel();
+
+        IEnumerator RoundCompletedCoroutine()
 		{
 			yield return new WaitForSeconds(1.0f);
 

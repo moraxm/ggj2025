@@ -31,6 +31,11 @@ public class BubblesRaycaster : MonoBehaviour
 		}
 	}
 
+	private bool CanPopBubble()
+	{
+		return false;
+	}
+
 	private void OnBubblePush()
 	{
 		if (GameManager.Instance.IsPlaying)
