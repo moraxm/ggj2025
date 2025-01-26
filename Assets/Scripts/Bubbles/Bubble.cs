@@ -4,8 +4,6 @@ public abstract class Bubble : MonoBehaviour
 {
     [SerializeField]
     private string _pushAnimationName = "Push";
-	[SerializeField]
-	private string _popAnimationName = "Pop";
 
 	protected Animator _animator = null;
     protected Collider _collider = null;
@@ -31,9 +29,13 @@ public abstract class Bubble : MonoBehaviour
 		_animator.CrossFade(_pushAnimationName, 0.1f);
     }
 
-    public virtual void Pop()
+    public virtual void Release()
     {
-        _animator.CrossFade(_popAnimationName, 0.1f);
+
+    }
+
+    protected virtual void Pop()
+    {
         if (_collider != null)
         {
             _collider.enabled = false;

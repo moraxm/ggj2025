@@ -6,8 +6,6 @@ public class BubbleLongPush : Bubble
 	[SerializeField]
 	private float _timeToPush = 1.0f;
 	[SerializeField]
-	private EventReference _longPushEvent;
-	[SerializeField]
 	private EventReference _longPopEvent;
 
 	protected PlayOneShotAudio _playOneShotAudio = null;
@@ -29,19 +27,18 @@ public class BubbleLongPush : Bubble
 			_timePushed = Mathf.Min(_timePushed + Time.deltaTime, _timeToPush);
 			if (_timePushed >= _timeToPush )
 			{
-				ActualPop();
+				Pop();
 			}
 		}
 	}
 
 	public override void Push()
 	{
-		_playOneShotAudio.Play(_longPushEvent);
 		base.Push();
 		_pushed = true;
 	}
 
-	public override void Pop()
+	public override void Release()
 	{
 		if (_pushed)
 		{
@@ -51,9 +48,10 @@ public class BubbleLongPush : Bubble
 		}
 	}
 
-	private void ActualPop()
+	protected override void Pop()
 	{
 		_playOneShotAudio.Play(_longPopEvent);
+		_animator.CrossFade("Pop", 0.1f);
 		base.Pop();
 		_pushed = false;
 	}
