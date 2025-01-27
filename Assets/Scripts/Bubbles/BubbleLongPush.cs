@@ -64,7 +64,7 @@ public class BubbleLongPush : Bubble
 		}
 	}
 
-	protected override void Pop()
+	public override void Pop()
 	{
 		_playOneShotAudio.Play(_longPopEvent);
 		_animator.CrossFade("Pop", 0.1f);

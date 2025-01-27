@@ -51,7 +51,7 @@ public class BubbleResistant : Bubble
 		}
 	}
 
-	protected override void Pop()
+	public override void Pop()
 	{
 		_playOneShotAudio.Play(_resistantPopEvent);
 		_animator.CrossFade("Push", 0.1f);

@@ -34,7 +34,7 @@ public abstract class Bubble : MonoBehaviour
 
     }
 
-    protected virtual void Pop()
+    public virtual void Pop()
     {
         if (_collider != null)
         {

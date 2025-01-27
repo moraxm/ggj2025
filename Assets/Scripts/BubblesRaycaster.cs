@@ -100,8 +100,7 @@ public class BubblesRaycaster : MonoBehaviour
 			{
 				if (bubbles[i].GetComponent<Collider>().enabled)
 				{
-					bubbles[i].Push();
-                    bubbles[i].Release();
+					bubbles[i].Pop();
 					return true;
                 }
 			}

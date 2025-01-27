@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
 		if (_playing)
 		{
 			RoundTime += Time.deltaTime;
-#if DEBUG
+#if DEBUG && !UNITY_ANDROID
 			if (Input.GetKeyDown(KeyCode.Comma))
 			{
 				RoundCompleted();

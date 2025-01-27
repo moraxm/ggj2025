@@ -12,7 +12,7 @@ public class BubbleDefective : Bubble
 		base.Release();
 	}
 
-	protected override void Pop()
+	public override void Pop()
 	{
 		// Sin sonido
 		base.Pop();

@@ -19,7 +19,7 @@ public class BubblePopped : Bubble
 		// Do nothing (collider is disabled)
 	}
 
-	protected override void Pop()
+	public override void Pop()
 	{
 		// Do nothing (collider is disabled)
 	}

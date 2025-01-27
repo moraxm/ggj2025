@@ -97,24 +97,4 @@ public class MenuCameraManager : MonoBehaviour
         }
 		IsTransitioning = false;
 	}
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            GoToCredits();
-        }
-        else if (Input.GetKeyDown(KeyCode.T))
-        {
-            GoToHowToPlay();
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            GoToMainMenu();
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            GoToPlay();
-        }
-    }
 }

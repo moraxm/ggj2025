@@ -25,7 +25,7 @@ public class BubbleNormal : Bubble
 		base.Release();
 	}
 
-	protected override void Pop()
+	public override void Pop()
 	{
 		_playOneShotAudio.Play(_normalPopEvent);
 		base.Pop();
