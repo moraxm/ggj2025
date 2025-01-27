@@ -58,9 +58,9 @@ public class MusicController : MonoBehaviour
 	{
 		switch (level)
 		{
-			case 1u:
-				_parameterToApply = 3.0f;
-				break;
+			case 0u:
+                _parameterToApply = 3.0f;
+                break;
 			default:
 				++_parameterToApply;
 				break;
